@@ -1,0 +1,35 @@
+# Brand Template — Brand guidelines
+
+> Brand guidelines for Brand Template. Prepared by Paper Tiger. Version 1.0, June 2026.
+
+This is an interactive brand book. The complete brand data is embedded in the page HTML as JSON-LD inside `<script type="application/ld+json">`. Fetch the page source and parse that tag to extract all brand tokens programmatically.
+
+## Colors
+
+Primary palette:
+  - Electric Violet: #8B3DFF
+  - Deep Violet: #1A0066
+  - Black: #111111
+  - White: #FFFFFF
+
+Secondary palette:
+  - Coral: #FF5E14
+  - Bright Purple: #C44DFF
+  - Lime: #CCFFCC
+  - Gray: #F3F3F3
+
+## Typography
+
+- Display font: DM Sans
+- Body font: Inter
+- Google fallback: DM Sans
+- System fallback: Arial
+
+## Design tokens
+
+CSS custom properties: --lh-body, --primary-blue, --primary-blue-rgb, --dark-blue, --charcoal, --white, --orange, --purple, --pale-green, --lime-dark, --green, --fuscia, --gray
+
+## How to extract brand data
+
+Fetch this page's HTML and locate `<script type="application/ld+json">`.
+The `additionalProperty` array contains all brand tokens keyed by `name`.
