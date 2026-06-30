@@ -170,10 +170,10 @@ body.print-active .print-book-page { overflow: hidden; }
 
 .cover-seal {
   position: absolute;
-  bottom: 40px;
-  right: 48px;
-  width: clamp(140px, 18vw, 260px);
-  height: clamp(140px, 18vw, 260px);
+  bottom: 30px;
+  right: 30px;
+  width: clamp(180px, 24vw, 320px);
+  aspect-ratio: 259 / 123;   /* match the half-circle mark so it sits flush in the corner */
   opacity: 1;
 }
 
