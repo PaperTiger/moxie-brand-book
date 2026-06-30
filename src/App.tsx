@@ -206,11 +206,6 @@ export default function App() {
     }
   }
 
-  // Pass active section to Marker so every report includes the page context
-  useEffect(() => {
-    ;(window as any).Marker?.setCustomData({ section: currentPage })
-  }, [currentPage])
-
   useEffect(() => {
     ;(window as any).__brandBookPrint = handleDownloadPdf
     return () => { delete (window as any).__brandBookPrint }

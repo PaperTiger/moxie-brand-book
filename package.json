@@ -15,7 +15,6 @@
   "dependencies": {
     "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/inter": "^5.2.8",
-    "@marker.io/browser": "^0.20.2",
     "dom-to-image-more": "^3.10.0",
     "html-to-image": "^1.11.13",
     "html2canvas": "^1.4.1",
