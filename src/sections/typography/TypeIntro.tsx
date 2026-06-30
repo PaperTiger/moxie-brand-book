@@ -21,7 +21,7 @@ export default function TypeIntro() {
         </div>
         <div style={{ background: '#F8F8F8', padding: '40px 36px' }}>
           <div style={{ fontFamily: `'${accent}', sans-serif`, fontWeight: 400, fontSize: 'clamp(40px,6vw,72px)', color: 'var(--charcoal)', lineHeight: 0.9, marginBottom: 24 }}>Aa</div>
-          <div style={{ fontFamily: `${df}, sans-serif`, fontSize: 11, color: '#4D4D4D', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 6 }}>Editorial headlines</div>
+          <div style={{ fontFamily: `${df}, sans-serif`, fontSize: 11, color: '#005668', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 6 }}>Editorial headlines</div>
           <div style={{ fontFamily: `'${accent}', sans-serif`, fontSize: 24, fontWeight: 400, color: 'var(--charcoal)' }}>{accent}</div>
         </div>
       </div>

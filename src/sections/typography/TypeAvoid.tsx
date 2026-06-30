@@ -26,7 +26,7 @@ export default function TypeAvoid() {
               <span style={{ color: '#FF3B3B', fontFamily: `${bf}, sans-serif`, fontSize: 10, fontWeight: 700, letterSpacing: '0.06em' }}>DON'T</span>
             </div>
             <div style={{ ...item.style, color: 'var(--charcoal)', marginBottom: 10 }}>{brand.specimens.avoidText}</div>
-            <div style={{ fontFamily: `${bf}, sans-serif`, fontSize: 12, color: '#4D4D4D' }}>{item.label}</div>
+            <div style={{ fontFamily: `${bf}, sans-serif`, fontSize: 12, color: '#005668' }}>{item.label}</div>
           </div>
         ))}
       </div>
