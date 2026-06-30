@@ -64,7 +64,7 @@ export default function LogoAvoid() {
           }}>
             <div style={{ background: item.bg, height: 160, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderBottom: "1px solid #E5E5E5" }}>
               {item.isRetype
-                ? <span style={{ fontFamily: "Georgia, serif", fontSize: 24, fontWeight: 700, color: "#000", letterSpacing: "-0.01em" }}>{brand.meta.client}</span>
+                ? <span style={{ fontFamily: "Georgia, serif", fontSize: 24, fontWeight: 700, color: '#005668', letterSpacing: "-0.01em" }}>{brand.meta.client}</span>
                 : <FullLogoSvg
                     markFill={item.mark!}
                     style={{ height: 44, width: "auto", ...item.svgStyle }}
@@ -73,7 +73,7 @@ export default function LogoAvoid() {
             </div>
             <div style={{ padding: "20px 24px" }}>
               <div style={{ fontFamily: "Gellix, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", color: t['orange'], textTransform: "uppercase", marginBottom: 8 }}>{item.heading}</div>
-              <div style={{ fontFamily: "Gellix, sans-serif", fontSize: 13, color: "#111", lineHeight: 1.5 }}>{item.body}</div>
+              <div style={{ fontFamily: "Gellix, sans-serif", fontSize: 13, color: '#005668', lineHeight: 1.5 }}>{item.body}</div>
             </div>
           </div>
         ))}

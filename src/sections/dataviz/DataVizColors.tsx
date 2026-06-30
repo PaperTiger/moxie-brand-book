@@ -73,10 +73,10 @@ export default function DataVizColors() {
             </div>
             <div style={{ padding: "16px 18px" }}>
               <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, fontWeight: 600,
-                color: "#111", marginBottom: 4 }}>{s.name}</div>
+                color: '#005668', marginBottom: 4 }}>{s.name}</div>
               <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, fontWeight: 600,
-                color: "#111", letterSpacing: "0.06em", marginBottom: 8 }}>{s.hex.toUpperCase()}</div>
-              <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: "#111",
+                color: '#005668', letterSpacing: "0.06em", marginBottom: 8 }}>{s.hex.toUpperCase()}</div>
+              <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: '#005668',
                 lineHeight: 1.55 }}>{s.note}</div>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function DataVizColors() {
       {/* Usage rules */}
       <div style={{ borderTop: "1px solid #E5E5E5", paddingTop: 40, marginBottom: 56 }}>
         <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
-          margin: '0 0 24px', color: '#111' }}>Usage rules</h3>
+          margin: '0 0 24px', color: '#005668' }}>Usage rules</h3>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0,
           border: "1px solid #E5E5E5" }}>
           {rules.map((r, i) => (
@@ -97,7 +97,7 @@ export default function DataVizColors() {
             }}>
               <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, fontWeight: 600,
                 color: t['primary-blue'], marginBottom: 8 }}>{r.heading}</div>
-              <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: "#111",
+              <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: '#005668',
                 lineHeight: 1.6 }}>{r.body}</div>
             </div>
           ))}
@@ -107,8 +107,8 @@ export default function DataVizColors() {
       {/* Sequential palette */}
       <div style={{ borderTop: "1px solid #E5E5E5", paddingTop: 40 }}>
         <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
-          margin: '0 0 8px', color: '#111' }}>Sequential palette</h3>
-        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#111',
+          margin: '0 0 8px', color: '#005668' }}>Sequential palette</h3>
+        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668',
           lineHeight: 1.6, marginBottom: 24, maxWidth: 520 }}>
           When a single data series needs value differentiation (heat maps, ranked lists, or
           choropleth maps), use opacity steps of the primary color.
@@ -119,13 +119,13 @@ export default function DataVizColors() {
               <div style={{ height: 64, background: t['primary-blue'], opacity: pct / 100,
                 border: pct <= 20 ? "1px solid #E5E5E5" : undefined }} />
               <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600,
-                color: "#111", letterSpacing: "0.06em", paddingTop: 8, textAlign: "center" }}>
+                color: '#005668', letterSpacing: "0.06em", paddingTop: 8, textAlign: "center" }}>
                 {pct}%
               </div>
             </div>
           ))}
         </div>
-        <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: "#111",
+        <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: '#005668',
           marginTop: 4 }}>
           100% → 80% → 60% → 40% → 20% → 10% opacity of Electric Violet
         </div>

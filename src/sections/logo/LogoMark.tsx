@@ -12,16 +12,16 @@ const LIGHT = '#E2FEF7'
 // The gradient mark is the lead version on neutral / light backgrounds.
 // Solid marks are used where the gradient would lose contrast (bright or dark backgrounds).
 const combos: { bg: string; label: string; lbl: string; mark?: string; gradient?: boolean }[] = [
-  { bg: '#FFFFFF',         gradient: true, label: 'White',      lbl: '#111' },
-  { bg: '#E2FEF7',         gradient: true, label: 'Veil',       lbl: '#111' },
-  { bg: '#C6E5DD',         gradient: true, label: 'Mist',       lbl: '#111' },
-  { bg: t['green'],        mark: DARK,     label: 'Lime',       lbl: '#111' },
-  { bg: t['fuscia'],       mark: DARK,     label: 'Aurora',     lbl: '#111' },
+  { bg: '#FFFFFF',         gradient: true, label: 'White',      lbl: '#005668' },
+  { bg: '#E2FEF7',         gradient: true, label: 'Veil',       lbl: '#005668' },
+  { bg: '#C6E5DD',         gradient: true, label: 'Mist',       lbl: '#005668' },
+  { bg: t['green'],        mark: DARK,     label: 'Lime',       lbl: '#005668' },
+  { bg: t['fuscia'],       mark: DARK,     label: 'Aurora',     lbl: '#005668' },
   { bg: t['primary-blue'], mark: LIGHT,    label: 'Dark teal',  lbl: '#fff' },
   { bg: '#0090A4',         mark: LIGHT,    label: 'Light teal', lbl: '#fff' },
   { bg: t['orange'],       mark: LIGHT,    label: 'Flare',      lbl: '#fff' },
   { bg: t['purple'],       mark: LIGHT,    label: 'Azure',      lbl: '#fff' },
-  { bg: t['charcoal'],     mark: LIGHT,    label: 'Dusk',       lbl: '#fff' },
+  { bg: '#36363B',     mark: LIGHT,    label: 'Dusk',       lbl: '#fff' },
 ]
 
 export default function LogoMark() {
@@ -46,8 +46,8 @@ export default function LogoMark() {
 
         {/* Clearspace */}
         <div className="content-block">
-          <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 12px', color: '#111' }}>Clearspace</h3>
-          <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#111', lineHeight: 1.6, marginBottom: 24, maxWidth: 520 }}>
+          <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 12px', color: '#005668' }}>Clearspace</h3>
+          <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668', lineHeight: 1.6, marginBottom: 24, maxWidth: 520 }}>
             x equals ½ the height of the {brand.meta.client} mark. Maintain this distance on all four sides.
           </p>
           <ClearspaceDiagram
@@ -61,7 +61,7 @@ export default function LogoMark() {
 
         {/* Approved color combinations */}
         <div style={{ marginTop: 48, paddingTop: 0 }}>
-          <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 16px', color: '#111' }}>Approved color combinations</h3>
+          <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 16px', color: '#005668' }}>Approved color combinations</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 0 }}>
             {combos.map(c => (
               <div key={c.label} style={{ background: c.bg, padding: '32px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, justifyContent: 'center', aspectRatio: '1' }}>

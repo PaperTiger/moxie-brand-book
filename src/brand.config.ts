@@ -93,10 +93,10 @@ const brand: BrandConfig = {
     { size: '73px', name: 'Display L',   family: 'Gellix', weight: 700, ls: '-0.03em',  lh: 0.9 },
     { size: '64px', name: 'Display M',   family: 'Gellix', weight: 700, ls: '-0.03em',  lh: 0.9 },
     { size: '48px', name: 'Display S',   family: 'Gellix', weight: 700, ls: '-0.025em', lh: 0.95 },
-    { size: '42px', name: 'Headline XL', family: 'Gellix', weight: 700, ls: '-0.02em',  lh: 1.0 },
-    { size: '32px', name: 'Headline L',  family: 'Gellix', weight: 700, ls: '-0.015em', lh: 1.1 },
-    { size: '24px', name: 'Headline M',  family: 'Gellix', weight: 700, ls: '-0.01em',  lh: 1.2 },
-    { size: '21px', name: 'Headline S',  family: 'Gellix', weight: 700, ls: '-0.01em',  lh: 1.2 },
+    { size: '42px', name: 'Headline XL', family: 'Gellix',          weight: 700, ls: '-0.02em', lh: 1.0 },
+    { size: '32px', name: 'Headline L',  family: 'Queens Condensed', weight: 400, ls: '0',       lh: 1.1 },
+    { size: '24px', name: 'Headline M',  family: 'Queens Condensed', weight: 400, ls: '0',       lh: 1.25 },
+    { size: '21px', name: 'Headline S',  family: 'Gellix',          weight: 700, ls: '-0.01em', lh: 1.2 },
     { size: '18px', name: 'Body XL',     family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.55 },
     { size: '16px', name: 'Body L',      family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.6 },
     { size: '14px', name: 'Body M',      family: 'Gellix', weight: 500, ls: '0',         lh: 1.6 },
@@ -142,7 +142,7 @@ const brand: BrandConfig = {
     'primary-blue':     '#005668',   // Dark Teal — primary accent
     'primary-blue-rgb': '0, 86, 104',
     'dark-blue':        '#004553',    // Logo dark — deep teal, hero backgrounds
-    charcoal:           '#36363B',    // Dusk — near-black neutral
+    charcoal:           '#005668',    // Dark Teal — all dark type uses this
     white:              '#FFFFFF',
     orange:             '#F65F28',    // Flare
     purple:             '#48A1FD',    // Azure
@@ -249,7 +249,8 @@ const brand: BrandConfig = {
           label: 'Display & body', id: 'fg-overview',
           groupId: 'nav-fg-group', subId: 'nav-fg-sub',
           children: [
-            { label: 'Overview',      id: 'fg-overview' },
+            { label: 'Gellix',        id: 'fg-overview' },
+            { label: 'Queens',        id: 'fg-overview-queens' },
             { label: 'Usage',         id: 'fg-usage' },
             { label: 'Type specimen', id: 'fg-specimen' },
             { label: 'Size & scale',  id: 'fg-scale' },

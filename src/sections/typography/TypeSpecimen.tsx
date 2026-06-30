@@ -32,7 +32,7 @@ export default function TypeSpecimen() {
       <div className="section-label">Typography</div>
       <h2 className="section-title">Type specimen</h2>
       <p className="section-intro">
-        The full type scale in use: display through caption, Gellix and Inter working together.
+        The full type scale in use: display through caption, with Gellix and Queens Condensed working together.
       </p>
 
       <div style={{ borderTop: '1px solid #E5E5E5' }}>

@@ -2,11 +2,12 @@ import brand from '../../brand.config'
 
 const sc = brand.typeScale
 
-// Each usage role references the type scale entry that defines its weight + letter-spacing
-const displayEntry  = sc.find(s => s.name === 'Display L')!
-const headlineEntry = sc.find(s => s.name === 'Headline XL')!
-const bodyXLEntry   = sc.find(s => s.name === 'Body XL')!
-const bodyLEntry    = sc.find(s => s.name === 'Body L')!
+// Each usage role references the type scale entry that defines its face, weight + letter-spacing
+const displayEntry   = sc.find(s => s.name === 'Display L')!     // Gellix Bold
+const sectionEntry   = sc.find(s => s.name === 'Headline XL')!   // Gellix Bold
+const editorialEntry = sc.find(s => s.name === 'Headline L')!    // Queens Condensed
+const bodyXLEntry    = sc.find(s => s.name === 'Body XL')!       // Gellix Medium
+const bodyLEntry     = sc.find(s => s.name === 'Body L')!        // Gellix Medium
 
 const rows = [
   {
@@ -14,18 +15,28 @@ const rows = [
     face: displayEntry.family, weight: 'Bold',
     specs: `48 – 96 px · ${displayEntry.ls} tracking · 90% leading · Sentence case`,
     ex: (
-      <div style={{ fontFamily: `${displayEntry.family}, sans-serif`, fontWeight: displayEntry.weight, fontSize: 'clamp(32px, 5vw, 72px)', lineHeight: 0.9, letterSpacing: displayEntry.ls, color: 'var(--charcoal)' }}>
+      <div style={{ fontFamily: `'${displayEntry.family}', sans-serif`, fontWeight: displayEntry.weight, fontSize: 'clamp(32px, 5vw, 72px)', lineHeight: 0.9, letterSpacing: displayEntry.ls, color: 'var(--charcoal)' }}>
         Prominent headline<br/>to describe a message.
       </div>
     ),
   },
   {
-    role: 'Small headline',
-    face: headlineEntry.family, weight: 'SemiBold',
-    specs: `21 – 42 px · ${headlineEntry.ls} tracking · 100% leading · Sentence case`,
+    role: 'Section headline',
+    face: sectionEntry.family, weight: 'Bold',
+    specs: `21 – 42 px · ${sectionEntry.ls} tracking · 100% leading · Sentence case`,
     ex: (
-      <div style={{ fontFamily: `${headlineEntry.family}, sans-serif`, fontWeight: headlineEntry.weight, fontSize: 'clamp(20px, 3.5vw, 40px)', lineHeight: 1, letterSpacing: headlineEntry.ls, color: 'var(--charcoal)' }}>
+      <div style={{ fontFamily: `'${sectionEntry.family}', sans-serif`, fontWeight: sectionEntry.weight, fontSize: 'clamp(20px, 3.5vw, 40px)', lineHeight: 1, letterSpacing: sectionEntry.ls, color: 'var(--charcoal)' }}>
         Concise subtitle to offer<br/>additional insight.
+      </div>
+    ),
+  },
+  {
+    role: 'Editorial headline',
+    face: editorialEntry.family, weight: 'Regular',
+    specs: `24 – 32 px · 0 tracking · 110% leading · Sentence case`,
+    ex: (
+      <div style={{ fontFamily: `'${editorialEntry.family}', serif`, fontWeight: editorialEntry.weight, fontSize: 'clamp(22px, 3.2vw, 32px)', lineHeight: 1.1, letterSpacing: editorialEntry.ls, color: 'var(--charcoal)' }}>
+        Attribution &amp; reporting<br/>that proves the results.
       </div>
     ),
   },
@@ -41,7 +52,7 @@ const rows = [
   },
   {
     role: 'Body copy large',
-    face: bodyXLEntry.family, weight: 'Regular',
+    face: bodyXLEntry.family, weight: 'Medium',
     specs: `18 px · ${bodyXLEntry.ls} tracking · 120% leading · Sentence case`,
     ex: (
       <div style={{ fontFamily: `${bodyXLEntry.family}, sans-serif`, fontWeight: bodyXLEntry.weight, fontSize: 'clamp(15px,1.4vw,18px)', lineHeight: 1.4, letterSpacing: bodyXLEntry.ls, color: 'var(--charcoal)', maxWidth: 560 }}>
@@ -51,7 +62,7 @@ const rows = [
   },
   {
     role: 'Body copy',
-    face: bodyLEntry.family, weight: 'Regular',
+    face: bodyLEntry.family, weight: 'Medium',
     specs: `16 px · ${bodyLEntry.ls} tracking · 140% leading · Sentence case`,
     ex: (
       <div style={{ fontFamily: `${bodyLEntry.family}, sans-serif`, fontWeight: bodyLEntry.weight, fontSize: 'clamp(14px,1.2vw,16px)', lineHeight: 1.4, letterSpacing: bodyLEntry.ls, color: 'var(--charcoal)', maxWidth: 560 }}>
@@ -67,20 +78,11 @@ export default function TypeUsage() {
       <div className="section-label">Typography</div>
       <h2 className="section-title">Typographic usage</h2>
       <p className="section-intro" style={{ maxWidth: 640 }}>
-        <strong>Four levels, no exceptions.</strong> Display headlines, section headlines, eyebrow labels,
-        and body copy, each mapped to a specific typeface, weight, size range, tracking, and leading.
-        Mixing roles or sizes outside this system undermines hierarchy.
+        Display and section headlines are set in <strong>Gellix Bold</strong>. Selected editorial
+        headlines use <strong>Queens Condensed</strong> for contrast. Eyebrow labels and body copy
+        are set in <strong>Gellix Medium</strong>. Each role maps to a specific typeface, weight,
+        size range, tracking, and leading. Mixing roles undermines hierarchy.
       </p>
-      <div style={{ display: 'flex', gap: 12, marginBottom: 48, flexWrap: 'wrap' }}>
-        <a href="https://fonts.google.com/specimen/DM+Sans" target="_blank" rel="noopener" className="dl-btn" style={{ marginTop: 0, marginBottom: 0 }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Download Gellix
-        </a>
-        <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener" className="dl-btn-outline" style={{ marginTop: 0, marginBottom: 0 }}>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Download Inter
-        </a>
-      </div>
 
       {rows.map((row) => (
         <div key={row.role} style={{ borderTop: '1px solid #E5E5E5', paddingTop: 28, paddingBottom: 48 }}>
@@ -88,7 +90,7 @@ export default function TypeUsage() {
             <div style={{ fontFamily: 'Gellix, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--charcoal)' }}>
               {row.role}
             </div>
-            <div style={{ fontFamily: 'Gellix, sans-serif', fontSize: 12, color: '#111', letterSpacing: '0.01em' }}>
+            <div style={{ fontFamily: 'Gellix, sans-serif', fontSize: 12, color: '#005668', letterSpacing: '0.01em' }}>
               {row.face} · {row.weight} · {row.specs}
             </div>
           </div>

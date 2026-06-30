@@ -30,10 +30,10 @@ function SpecTable({ rows }: { rows: { spec: string; value: string }[] }) {
           borderBottom: i < rows.length - 1 ? "1px solid #E5E5E5" : undefined,
         }}>
           <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, fontWeight: 700,
-            color: "#111", textTransform: "uppercase", letterSpacing: "0.05em", paddingTop: 1 }}>
+            color: '#005668', textTransform: "uppercase", letterSpacing: "0.05em", paddingTop: 1 }}>
             {row.spec}
           </div>
-          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: "#111",
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: '#005668',
             lineHeight: 1.55 }}>{row.value}</div>
         </div>
       ))}
@@ -72,8 +72,8 @@ export default function PrintSpecs() {
       {/* Safe area diagram */}
       <div style={{ borderTop: "1px solid #E5E5E5", paddingTop: 40, marginBottom: 56 }}>
         <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
-          margin: '0 0 8px', color: '#111' }}>Print safe area</h3>
-        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#111',
+          margin: '0 0 8px', color: '#005668' }}>Print safe area</h3>
+        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668',
           lineHeight: 1.6, marginBottom: 28, maxWidth: 520 }}>
           For any printed document using the brand identity, always set up bleed and safe area
           zones in your layout application before placing artwork.
@@ -125,7 +125,7 @@ export default function PrintSpecs() {
                   <line x1="0" y1="5" x2="24" y2="5" stroke={item.color} strokeWidth="1.5"
                     strokeDasharray={item.dash ? "4,3" : undefined} />
                 </svg>
-                <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: "#111",
+                <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: '#005668',
                   lineHeight: 1.4 }}>{item.label}</div>
               </div>
             ))}
@@ -136,8 +136,8 @@ export default function PrintSpecs() {
       {/* PDF export */}
       <div style={{ borderTop: "1px solid #E5E5E5", paddingTop: 40 }}>
         <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
-          margin: '0 0 8px', color: '#111' }}>Export this brand book as PDF</h3>
-        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#111',
+          margin: '0 0 8px', color: '#005668' }}>Export this brand book as PDF</h3>
+        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668',
           lineHeight: 1.6, marginBottom: 24, maxWidth: 560 }}>
           Use the button below (or the sidebar Print button) to export the complete brand book
           as a PDF. All sections are included, each starting on a new page.
@@ -164,7 +164,7 @@ export default function PrintSpecs() {
           padding: "16px 20px", maxWidth: 560 }}>
           <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, fontWeight: 600,
             color: t['primary-blue'], marginBottom: 6 }}>Browser tip</div>
-          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: "#111",
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: '#005668',
             lineHeight: 1.65 }}>
             In the print dialog, set <strong>Destination → Save as PDF</strong>, margins to
             <strong> None</strong>, and enable <strong>Background graphics</strong> to preserve

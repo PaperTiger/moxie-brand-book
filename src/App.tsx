@@ -20,6 +20,7 @@ const SECTIONS: Record<string, React.LazyExoticComponent<() => React.ReactElemen
   'color-pathways':     lazy(() => import('./sections/color/ColorPathways')),
   'type-intro':         lazy(() => import('./sections/typography/TypeIntro')),
   'fg-overview':        lazy(() => import('./sections/typography/TypeOverview')),
+  'fg-overview-queens': lazy(() => import('./sections/typography/TypeOverviewQueens')),
   'fg-usage':           lazy(() => import('./sections/typography/TypeUsage')),
   'fg-specimen':        lazy(() => import('./sections/typography/TypeSpecimen')),
   'fg-scale':           lazy(() => import('./sections/typography/TypeScale')),

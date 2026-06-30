@@ -64,7 +64,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #111;
+  color: #005668;
   padding: 16px 24px 6px;
 }
 
@@ -72,8 +72,8 @@ body {
   display: block;
   font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 13px;
-  font-weight: 400;
-  color: #111;
+  font-weight: 500;
+  color: #005668;
   padding: 6px 24px;
   text-decoration: none;
   cursor: pointer;
@@ -135,7 +135,7 @@ body.print-active .print-book-page { overflow: hidden; }
   font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 16px;
   line-height: var(--lh-body);
-  color: #111;
+  color: #005668;
   max-width: 600px;
   margin-bottom: 48px;
 }
@@ -676,7 +676,7 @@ body.print-active .print-book-page { overflow: hidden; }
     font-family: Gellix, sans-serif;
     font-size: 18px;
     line-height: 1.6;
-    color: #111;
+    color: #005668;
     padding: 80px 60px;
   }
 
