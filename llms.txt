@@ -1,28 +1,28 @@
-# Brand Template — Brand guidelines
+# Moxie — Brand guidelines
 
-> Brand guidelines for Brand Template. Prepared by Paper Tiger. Version 1.0, June 2026.
+> Brand guidelines for Moxie. Prepared by Paper Tiger. Version 1.0, June 2026.
 
 This is an interactive brand book. The complete brand data is embedded in the page HTML as JSON-LD inside `<script type="application/ld+json">`. Fetch the page source and parse that tag to extract all brand tokens programmatically.
 
 ## Colors
 
 Primary palette:
-  - Electric Violet: #8B3DFF
-  - Deep Violet: #1A0066
-  - Black: #111111
-  - White: #FFFFFF
+  - Dark Teal: #005668
+  - Light Teal: #0090A4
+  - Mist: #C6E5DD
+  - Veil: #E2FEF7
 
 Secondary palette:
-  - Coral: #FF5E14
-  - Bright Purple: #C44DFF
-  - Lime: #CCFFCC
-  - Gray: #F3F3F3
+  - Flare: #F65F28
+  - Lime: #BAEB65
+  - Aurora: #55EFC7
+  - Azure: #48A1FD
 
 ## Typography
 
-- Display font: DM Sans
-- Body font: Inter
-- Google fallback: DM Sans
+- Display font: Gellix
+- Body font: Gellix
+- Google fallback: Outfit
 - System fallback: Arial
 
 ## Design tokens
