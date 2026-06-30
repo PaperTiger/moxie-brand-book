@@ -9,9 +9,9 @@ export default function PhotoDonts() {
     { img: photos[6],  filter: "saturate(0.2) brightness(1.15)", caption: "Don't shoot desaturated, stylised imagery that strips the brand's warmth and character." },
     { img: photos[7],  filter: "brightness(1.6) contrast(1.1)", caption: "Avoid blown-out, over-exposed images that feel generic and lack a sense of place." },
     { img: photos[8],  filter: "hue-rotate(180deg) saturate(0.5)", caption: "Don't apply heavy color grading or filters that make images feel processed and inauthentic." },
-    { img: photos[9],  filter: "saturate(0.1) brightness(1.2) contrast(1.1)", caption: `Avoid generic stock imagery that could belong to any brand. Use photography specific to ${client}.` },
+    { img: "stock-handshake.webp", filter: "none", caption: `Avoid generic stock imagery that could belong to any brand. Use photography specific to ${client}.` },
     { img: photos[10], filter: "brightness(1.8) contrast(0.85) saturate(0.4)", caption: "Don't shoot from perspectives that make the brand feel abstract rather than lived-in." },
-    { img: photos[11], filter: "saturate(2.2) contrast(1.3) brightness(1.1)", caption: "Avoid overly polished promotional imagery that projects aspiration over authenticity." },
+    { img: "stock-hands-unity.webp", filter: "none", caption: "Avoid clichéd, overly polished stock concepts (stacked hands, staged \"teamwork\") that feel generic rather than authentic." },
   ]
   return (
     <div className="photo-layout">
