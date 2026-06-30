@@ -4,10 +4,10 @@ import { StackedLogoSvg, LogoMarkSvg } from '../../components/ui/LogoSvg'
 const t = brand.tokens
 
 const avatarBgs = [
-  { bg: t['primary-blue'], mark: '#fff',            inner: t['primary-blue'], wm: '#fff', label: 'Electric Violet' },
-  { bg: t['orange'],       mark: '#111',            inner: '#fff',            wm: '#111', label: 'Coral' },
-  { bg: t['dark-blue'],   mark: '#fff',            inner: t['primary-blue'], wm: '#fff', label: 'Deep Violet' },
-  { bg: '#111111',         mark: '#fff',            inner: '#111',            wm: '#fff', label: 'Black' },
+  { bg: t['primary-blue'], mark: '#E2FEF7', label: 'Dark teal' },
+  { bg: '#0090A4',         mark: '#E2FEF7', label: 'Light teal' },
+  { bg: t['dark-blue'],    mark: '#E2FEF7', label: 'Logo dark' },
+  { bg: t['charcoal'],     mark: '#E2FEF7', label: 'Dusk' },
 ]
 
 const faviconSizes = [64, 48, 32, 16]
@@ -35,9 +35,9 @@ export default function LogoAvatar() {
           {avatarBgs.map(a => (
             <div key={a.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
               <div style={{ width: "100%", aspectRatio: "1", borderRadius: "50%", background: a.bg, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                <StackedLogoSvg markFill={a.mark} wordmarkFill={a.wm} innerTextFill={a.inner} style={{ width: "60%", height: "auto" }} />
+                <StackedLogoSvg markFill={a.mark} style={{ width: "60%", height: "auto" }} />
               </div>
-              <div style={{ fontSize: 11, color: "#111", letterSpacing: "0.04em", fontFamily: "Inter, sans-serif" }}>{a.label}</div>
+              <div style={{ fontSize: 11, color: "#111", letterSpacing: "0.04em", fontFamily: "Gellix, sans-serif" }}>{a.label}</div>
             </div>
           ))}
         </div>
@@ -49,27 +49,27 @@ export default function LogoAvatar() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, maxWidth: 760 }}>
           <div>
-            <div style={{ fontSize: 11, color: "#111", letterSpacing: "0.04em", marginBottom: 16, fontFamily: "Inter, sans-serif" }}>On light</div>
+            <div style={{ fontSize: 11, color: "#111", letterSpacing: "0.04em", marginBottom: 16, fontFamily: "Gellix, sans-serif" }}>On light</div>
             <div style={{ display: "flex", alignItems: "flex-end", gap: 28 }}>
               {faviconSizes.map(size => (
                 <div key={size} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
                   <div style={{ width: size, height: size, background: "#FFFFFF", border: "1px solid #E5E5E5", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <LogoMarkSvg markFill={t['primary-blue']} innerTextFill="#fff" style={{ width: "80%", height: "80%" }} />
+                    <LogoMarkSvg markFill={t['dark-blue']} style={{ width: "80%", height: "80%" }} />
                   </div>
-                  <div style={{ fontSize: 10, color: "#111", fontFamily: "Inter, sans-serif" }}>{size}px</div>
+                  <div style={{ fontSize: 10, color: "#111", fontFamily: "Gellix, sans-serif" }}>{size}px</div>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <div style={{ fontSize: 11, color: "#111", letterSpacing: "0.04em", marginBottom: 16, fontFamily: "Inter, sans-serif" }}>On dark</div>
+            <div style={{ fontSize: 11, color: "#111", letterSpacing: "0.04em", marginBottom: 16, fontFamily: "Gellix, sans-serif" }}>On dark</div>
             <div style={{ display: "flex", alignItems: "flex-end", gap: 28 }}>
               {faviconSizes.map(size => (
                 <div key={size} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
                   <div style={{ width: size, height: size, background: "#000000", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <LogoMarkSvg markFill="#fff" innerTextFill="#000" style={{ width: "80%", height: "80%" }} />
+                    <LogoMarkSvg markFill="#fff" style={{ width: "80%", height: "80%" }} />
                   </div>
-                  <div style={{ fontSize: 10, color: "#111", fontFamily: "Inter, sans-serif" }}>{size}px</div>
+                  <div style={{ fontSize: 10, color: "#111", fontFamily: "Gellix, sans-serif" }}>{size}px</div>
                 </div>
               ))}
             </div>

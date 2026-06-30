@@ -23,7 +23,7 @@ function contrast(hex1: string, hex2: string) {
   return Math.round(((lighter + 0.05) / (darker + 0.05)) * 10) / 10
 }
 
-const allColors = [...brand.colors.primary, ...brand.colors.secondary]
+const allColors = [...brand.colors.primary, ...brand.colors.secondary, ...brand.colors.tertiary]
 
 function colorByName(name: string) {
   return allColors.find(c => c.name.toLowerCase() === name.toLowerCase())
@@ -67,20 +67,20 @@ export default function ColorCombinations() {
                 <img
                   src={`${base}images/logos/${p.logo}`}
                   alt={brand.meta.client}
-                  style={{ width: '100%', maxWidth: 'clamp(140px, 16vw, 220px)', height: 'auto', display: 'block' }}
+                  style={{ width: '100%', maxWidth: 'clamp(90px, 10vw, 150px)', height: 'auto', display: 'block' }}
                 />
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
                 <span style={{
-                  fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 500,
+                  fontFamily: 'Gellix, sans-serif', fontSize: 10, fontWeight: 500,
                   color: fgHex, letterSpacing: '0.02em',
                 }}>
                   {p.bg}
                 </span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
                   <span style={{
-                    fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 700,
+                    fontFamily: 'Gellix, sans-serif', fontSize: 9, fontWeight: 700,
                     letterSpacing: '0.04em',
                     color: bgHex, background: fgHex,
                     padding: '3px 7px', borderRadius: 2,
@@ -93,7 +93,7 @@ export default function ColorCombinations() {
                     )}
                     {level}
                   </span>
-                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 500, color: fgHex }}>
+                  <span style={{ fontFamily: 'Gellix, sans-serif', fontSize: 10, fontWeight: 500, color: fgHex }}>
                     {ratio}:1
                   </span>
                 </div>

@@ -39,7 +39,7 @@ body { margin: 0; background: #fff; -webkit-font-smoothing: antialiased; }
 }
 
 .sidebar-eyebrow {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -53,7 +53,7 @@ body { margin: 0; background: #fff; -webkit-font-smoothing: antialiased; }
 .nav-groups > div + div { border-top: 1px solid #E5E5E5; }
 
 .nav-group-label {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -64,7 +64,7 @@ body { margin: 0; background: #fff; -webkit-font-smoothing: antialiased; }
 
 .nav-link {
   display: block;
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: #111;
@@ -106,7 +106,7 @@ body.print-active .print-book-page { overflow: hidden; }
 }
 
 .section-label {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -116,7 +116,7 @@ body.print-active .print-book-page { overflow: hidden; }
 }
 
 .section-title {
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-size: clamp(22px, 5.5vw, 34px);
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -126,7 +126,7 @@ body.print-active .print-book-page { overflow: hidden; }
 }
 
 .section-intro {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 16px;
   line-height: var(--lh-body);
   color: #111;
@@ -146,20 +146,20 @@ body.print-active .print-book-page { overflow: hidden; }
 }
 
 .cover-heading {
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-size: clamp(80px, 14vw, 160px);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.88;
-  color: #000;
+  color: #E2FEF7;
   margin: 0;
 }
 
 .cover-meta {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 13px;
   line-height: 1.8;
-  color: #000;
+  color: #E2FEF7;
 }
 
 .cover-seal {
@@ -200,11 +200,11 @@ body.print-active .print-book-page { overflow: hidden; }
   font-weight: 600;
   letter-spacing: 0.02em;
   margin-bottom: 20px;
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
 }
 
 .swatch-values {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 11px;
   line-height: var(--lh-body);
   display: grid;
@@ -282,7 +282,7 @@ body.print-active .print-book-page { overflow: hidden; }
 .cs-dim-h.right { right: 0; border-left:  1px solid rgba(var(--primary-blue-rgb, 139, 61, 255), 0.20); }
 
 .cs-lbl {
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-weight: 700;
   font-size: 10px;
   color: var(--primary-blue, #8B3DFF);
@@ -298,12 +298,12 @@ body.print-active .print-book-page { overflow: hidden; }
   gap: 8px;
   padding-top: 14px;
   font-size: 12px;
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   color: #333;
 }
 
 .cs-def-x {
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-weight: 700;
   font-size: 11px;
   padding: 2px 7px;
@@ -334,7 +334,7 @@ body.print-active .print-book-page { overflow: hidden; }
 }
 
 .specimen-meta {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 10px;
   color: #4D4D4D;
   width: 80px;
@@ -358,7 +358,7 @@ body.print-active .print-book-page { overflow: hidden; }
   background: #FFF6F0;
   border-left: 3px solid #FF5E14;
   padding: 12px 16px;
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 13px;
   color: #444;
   line-height: var(--lh-body);
@@ -456,6 +456,16 @@ body.print-active .print-book-page { overflow: hidden; }
   height: auto;
 }
 
+/* ── Application examples (2-column grid) ───────────────────────── */
+.app-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .app-examples-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Intro layout (vi-intro, icon-intro) ────────────────────────── */
 .intro-layout {
   display: flex;
@@ -465,7 +475,7 @@ body.print-active .print-book-page { overflow: hidden; }
   box-sizing: border-box;
 }
 .intro-statement {
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-weight: 700;
   font-size: clamp(24px, 3.2vw, 48px);
   line-height: 0.9;
@@ -476,7 +486,7 @@ body.print-active .print-book-page { overflow: hidden; }
 }
 .intro-body { max-width: 520px; }
 .intro-body p {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   color: var(--charcoal, #111);
   line-height: var(--lh-body);
   font-size: 16px;
@@ -490,7 +500,7 @@ body.print-active .print-book-page { overflow: hidden; }
   gap: 8px;
   background: var(--charcoal, #111);
   color: #fff;
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -507,7 +517,7 @@ body.print-active .print-book-page { overflow: hidden; }
   background: transparent;
   color: var(--charcoal, #111);
   border: 1px solid var(--charcoal, #111);
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -521,7 +531,7 @@ body.print-active .print-book-page { overflow: hidden; }
   background: transparent;
   color: #fff;
   border: 1px solid rgba(255,255,255,0.45);
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -549,7 +559,7 @@ body.print-active .print-book-page { overflow: hidden; }
   background: #FFF6F0;
   border-left: 3px solid var(--orange, #FF5E14);
   padding: 14px 18px;
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 14px;
   color: var(--charcoal, #111);
   line-height: var(--lh-body);
@@ -583,7 +593,7 @@ body.print-active .print-book-page { overflow: hidden; }
 .page-nav-link:hover .page-nav-dir { color: var(--primary-blue, #8B3DFF); }
 
 .page-nav-dir {
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -593,7 +603,7 @@ body.print-active .print-book-page { overflow: hidden; }
 }
 
 .page-nav-label {
-  font-family: var(--display-font, 'DM Sans'), sans-serif;
+  font-family: var(--display-font, 'Gellix'), sans-serif;
   font-size: 17px;
   font-weight: 500;
   line-height: 1.1;
@@ -620,7 +630,7 @@ body.print-active .print-book-page { overflow: hidden; }
   border: 1px solid #E5E5E5;
   padding: 9px 12px;
   cursor: pointer;
-  font-family: var(--body-font, 'Inter'), sans-serif;
+  font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: #4D4D4D;
@@ -657,7 +667,7 @@ body.print-active .print-book-page { overflow: hidden; }
   body:not(.print-active)::after {
     content: "To export the complete brand book, use the 'Generate print version' button in the sidebar.";
     display: block;
-    font-family: Inter, sans-serif;
+    font-family: Gellix, sans-serif;
     font-size: 18px;
     line-height: 1.6;
     color: #111;

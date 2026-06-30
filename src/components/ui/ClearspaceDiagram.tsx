@@ -4,11 +4,12 @@ interface Props {
   csX: number
   logoMaxHeight?: number
   defLabel: string
+  background?: string
 }
 
-export default function ClearspaceDiagram({ logoSrc, logoAlt, csX, logoMaxHeight = 68, defLabel }: Props) {
+export default function ClearspaceDiagram({ logoSrc, logoAlt, csX, logoMaxHeight = 68, defLabel, background }: Props) {
   return (
-    <div className="cs-outer">
+    <div className="cs-outer" style={background ? { background } : undefined}>
       <div className="cs-zone" style={{ '--cs-x': `${csX}px` } as React.CSSProperties}>
         <div className="cs-logo-box">
           <img src={logoSrc} alt={logoAlt} style={{ maxHeight: logoMaxHeight, width: 'auto', display: 'block' }} />

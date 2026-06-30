@@ -20,13 +20,15 @@ export default function AppExamples() {
         The {client} system applied across pitch decks, social media, merchandise,
         and digital media. Examples will be updated as real assets are produced.
       </p>
-      <div className="masonry-grid" style={{ margin: '0 0 80px' }}>
+      <div className="app-examples-grid" style={{ margin: '0 0 80px' }}>
         {hasReal
           ? apps.map(f => (
-              <img key={f} src={`${base}images/applications/${f}`} alt="Application example" />
+              <img key={f} src={`${base}images/applications/${f}`} alt="Application example"
+                style={{ width: '100%', height: 'auto', display: 'block' }} />
             ))
           : PLACEHOLDERS.map((src, i) => (
-              <img key={i} src={src} alt="Application example" />
+              <img key={i} src={src} alt="Application example"
+                style={{ width: '100%', height: 'auto', display: 'block' }} />
             ))
         }
       </div>

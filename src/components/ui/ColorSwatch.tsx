@@ -55,9 +55,9 @@ export default function ColorSwatch({ color }: Props) {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', background: textColor, flexShrink: 0 }} />
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, fontWeight: 600, color: textColor, letterSpacing: '0.02em', lineHeight: 1 }}>{color.name}</span>
+        <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 16, fontWeight: 600, color: textColor, letterSpacing: '0.02em', lineHeight: 1 }}>{color.name}</span>
       </div>
-      <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: textColor, display: 'grid', gridTemplateColumns: '14px 1fr', gap: '0 10px', lineHeight: 1.1, opacity: 0.92, fontWeight: 500 }}>
+      <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: textColor, display: 'grid', gridTemplateColumns: '14px 1fr', gap: '0 10px', lineHeight: 1.1, opacity: 0.92, fontWeight: 500 }}>
         <span>R</span><span>{r}</span>
         <span>G</span><span>{g}</span>
         <span>B</span><span>{b}</span>
@@ -71,7 +71,7 @@ export default function ColorSwatch({ color }: Props) {
         <div>
           <button
             onClick={copyHex}
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: textColor, background: pillBg, border: 'none', cursor: 'pointer', padding: '2px 8px', borderRadius: 999, display: 'inline-flex', alignItems: 'center', gap: 5, letterSpacing: '0.03em', fontWeight: 600 }}
+            style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: textColor, background: pillBg, border: 'none', cursor: 'pointer', padding: '2px 8px', borderRadius: 999, display: 'inline-flex', alignItems: 'center', gap: 5, letterSpacing: '0.03em', fontWeight: 600 }}
             title="Copy hex"
           >
             {hexVal}

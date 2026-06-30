@@ -83,7 +83,7 @@ export default function GoogleFallback() {
             <div style={{ fontFamily: `'${gf}', sans-serif`, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--charcoal)' }}>
               {row.role}
             </div>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#4D4D4D', letterSpacing: '0.01em' }}>
+            <div style={{ fontFamily: 'Gellix, sans-serif', fontSize: 12, color: '#4D4D4D', letterSpacing: '0.01em' }}>
               {gf} · {row.weight} · {row.specs}
             </div>
           </div>

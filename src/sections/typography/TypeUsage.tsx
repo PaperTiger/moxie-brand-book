@@ -31,10 +31,10 @@ const rows = [
   },
   {
     role: 'Eyebrow / label',
-    face: 'DM Sans', weight: 'SemiBold',
+    face: 'Gellix', weight: 'SemiBold',
     specs: '10 – 12 px · +8% tracking · 100% leading · UPPERCASE',
     ex: (
-      <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: 13, lineHeight: 1, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--charcoal)' }}>
+      <div style={{ fontFamily: 'Gellix, sans-serif', fontWeight: 600, fontSize: 13, lineHeight: 1, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--charcoal)' }}>
         Section label / eyebrow text
       </div>
     ),
@@ -74,7 +74,7 @@ export default function TypeUsage() {
       <div style={{ display: 'flex', gap: 12, marginBottom: 48, flexWrap: 'wrap' }}>
         <a href="https://fonts.google.com/specimen/DM+Sans" target="_blank" rel="noopener" className="dl-btn" style={{ marginTop: 0, marginBottom: 0 }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Download DM Sans
+          Download Gellix
         </a>
         <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener" className="dl-btn-outline" style={{ marginTop: 0, marginBottom: 0 }}>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -85,10 +85,10 @@ export default function TypeUsage() {
       {rows.map((row) => (
         <div key={row.role} style={{ borderTop: '1px solid #E5E5E5', paddingTop: 28, paddingBottom: 48 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 24 }}>
-            <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--charcoal)' }}>
+            <div style={{ fontFamily: 'Gellix, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--charcoal)' }}>
               {row.role}
             </div>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#111', letterSpacing: '0.01em' }}>
+            <div style={{ fontFamily: 'Gellix, sans-serif', fontSize: 12, color: '#111', letterSpacing: '0.01em' }}>
               {row.face} · {row.weight} · {row.specs}
             </div>
           </div>

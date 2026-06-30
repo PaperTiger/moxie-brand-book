@@ -12,10 +12,10 @@ function PartnerLogo({ height = 40, muted = false }: { height?: number; muted?: 
     <svg width={w} height={height} viewBox={`0 0 ${w} ${height}`}>
       <rect x="0" y="0" width={height} height={height} rx={Math.round(height * 0.18)} fill={blockColor} />
       <text x={height / 2} y={height * 0.66} textAnchor="middle"
-        fontFamily="Inter, sans-serif" fontSize={Math.round(height * 0.3)} fontWeight="700"
+        fontFamily="Gellix, sans-serif" fontSize={Math.round(height * 0.3)} fontWeight="700"
         fill={monoColor}>PT</text>
       <text x={height + height * 0.38} y={height * 0.69}
-        fontFamily="Inter, sans-serif" fontSize={Math.round(height * 0.42)} fontWeight="600"
+        fontFamily="Gellix, sans-serif" fontSize={Math.round(height * 0.42)} fontWeight="600"
         fill={textColor} letterSpacing="-0.02em">Partner</text>
     </svg>
   )
@@ -65,13 +65,13 @@ export default function Cobranding() {
         <div style={{ background: "#F8F8F8", padding: "52px 40px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 28, marginBottom: 20 }}>
             <FullLogoSvg
-              markFill={t['primary-blue']} wordmarkFill={t['charcoal']} innerTextFill="#fff"
+              markFill={t['dark-blue']}
               style={{ height: 40, width: "auto" }}
             />
             <div style={{ width: 1, height: 52, background: "#C4C4C4" }} />
             <PartnerLogo height={40} />
           </div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600,
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, fontWeight: 600,
             letterSpacing: "0.08em", textTransform: "uppercase", color: "#111" }}>
             Horizontal, on light
           </div>
@@ -86,7 +86,7 @@ export default function Cobranding() {
             <div style={{ width: 64, height: 1, background: "rgba(255,255,255,0.2)" }} />
             <PartnerLogo height={40} muted />
           </div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600,
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, fontWeight: 600,
             letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>
             Stacked, on dark
           </div>
@@ -95,9 +95,9 @@ export default function Cobranding() {
 
       {/* Clearspace between logos */}
       <div className="content-block">
-        <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, fontSize: 17,
+        <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
           margin: '0 0 8px', color: '#111' }}>Clearspace between logos</h3>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: '#111',
+        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#111',
           lineHeight: 1.6, marginBottom: 32, maxWidth: 520 }}>
           Maintain a minimum clearspace of <strong>one brand mark height</strong> on each side of
           the divider between the two logos. A vertical rule may sit at the midpoint.
@@ -106,13 +106,13 @@ export default function Cobranding() {
           display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <FullLogoSvg
-              markFill={t['primary-blue']} wordmarkFill={t['charcoal']} innerTextFill="#fff"
+              markFill={t['dark-blue']}
               style={{ height: 44, width: "auto" }}
             />
             <div style={{ width: csXpx, height: 44,
               background: `color-mix(in srgb, ${t['primary-blue']} 12%, transparent)`,
               display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 700,
+              <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 700,
                 color: t['primary-blue'], background: "rgba(255,255,255,0.85)",
                 padding: "1px 5px", borderRadius: 2 }}>x</span>
             </div>
@@ -120,15 +120,15 @@ export default function Cobranding() {
             <div style={{ width: csXpx, height: 44,
               background: `color-mix(in srgb, ${t['primary-blue']} 12%, transparent)`,
               display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 700,
+              <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 700,
                 color: t['primary-blue'], background: "rgba(255,255,255,0.85)",
                 padding: "1px 5px", borderRadius: 2 }}>x</span>
             </div>
             <PartnerLogo height={44} />
           </div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#111",
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: "#111",
             display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 11,
+            <span style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 700, fontSize: 11,
               background: `color-mix(in srgb, ${t['primary-blue']} 40%, transparent)`,
               padding: "2px 7px", borderRadius: 2, flexShrink: 0 }}>x</span>
             <span>= the height of the brand mark</span>
@@ -138,9 +138,9 @@ export default function Cobranding() {
 
       {/* Size hierarchy */}
       <div className="content-block">
-        <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, fontSize: 17,
+        <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
           margin: '0 0 8px', color: '#111' }}>Size hierarchy</h3>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: '#111',
+        <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#111',
           lineHeight: 1.6, marginBottom: 24, maxWidth: 520 }}>
           The brand logo must be visually equal to or larger than the partner logo at all times.
           Never allow a partner logo to appear more prominent than the brand.
@@ -154,7 +154,7 @@ export default function Cobranding() {
               <div style={{ width: 1, height: 52, background: "#C4C4C4" }} />
               <PartnerLogo height={40} />
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700,
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, fontWeight: 700,
               letterSpacing: "0.06em", color: "#16A34A", textTransform: "uppercase" }}>
               Equal height: correct
             </div>
@@ -167,8 +167,8 @@ export default function Cobranding() {
               <div style={{ width: 1, height: 64, background: "#C4C4C4" }} />
               <PartnerLogo height={64} />
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700,
-              letterSpacing: "0.06em", color: "#CC1188", textTransform: "uppercase" }}>
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, fontWeight: 700,
+              letterSpacing: "0.06em", color: t['orange'], textTransform: "uppercase" }}>
               Brand too small: incorrect
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function Cobranding() {
 
       {/* What to avoid */}
       <div className="content-block">
-        <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, fontSize: 17,
+        <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
           margin: '0 0 24px', color: '#111' }}>What to avoid</h3>
         <div className="cobranding-avoid-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)",
           gap: 0, border: "1px solid #E5E5E5" }}>
@@ -187,12 +187,12 @@ export default function Cobranding() {
               borderBottom: i < 3 ? "1px solid #E5E5E5" : undefined,
               padding: "20px 22px",
             }}>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 700,
-                letterSpacing: "0.06em", color: "#CC1188", textTransform: "uppercase",
+              <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, fontWeight: 700,
+                letterSpacing: "0.06em", color: t['orange'], textTransform: "uppercase",
                 marginBottom: 8 }}>
                 {item.heading}
               </div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#111",
+              <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: "#111",
                 lineHeight: 1.5 }}>
                 {item.body}
               </div>

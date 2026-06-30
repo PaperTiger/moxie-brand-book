@@ -9,35 +9,35 @@ const items = [
     body: "Always scale proportionally. Never stretch, squash, or skew the logo.",
     bg: "#F8F8F8",
     svgStyle: { transform: "scaleX(1.6)" },
-    mark: t['primary-blue'], wm: t['charcoal'], inner: '#fff',
+    mark: t['dark-blue'],
   },
   {
     heading: "Don't recolor",
     body: "Use only approved logo colors. Don't apply gradients, secondary palette colors, or off-brand tints.",
     bg: "#F8F8F8",
     svgStyle: { filter: "hue-rotate(80deg) saturate(200%) brightness(0.7)" },
-    mark: t['primary-blue'], wm: t['charcoal'], inner: '#fff',
+    mark: t['dark-blue'],
   },
   {
     heading: "Don't add effects",
     body: "No shadows, glows, outlines, or bevels. The logo stays flat.",
     bg: "#F8F8F8",
     svgStyle: { filter: "drop-shadow(3px 4px 10px rgba(0,0,0,0.55))" },
-    mark: t['primary-blue'], wm: t['charcoal'], inner: '#fff',
+    mark: t['dark-blue'],
   },
   {
     heading: "Don't rotate",
     body: "Keep the logo level. Never set it on an angle or rotate the mark.",
     bg: "#F8F8F8",
     svgStyle: { transform: "rotate(-18deg)" },
-    mark: t['primary-blue'], wm: t['charcoal'], inner: '#fff',
+    mark: t['dark-blue'],
   },
   {
     heading: "Don't use low contrast",
     body: "Don't place the dark logo on dark or busy backgrounds. Use the white version instead.",
     bg: t['dark-blue'],
     svgStyle: { opacity: 0.25 },
-    mark: t['primary-blue'], wm: t['charcoal'], inner: '#fff',
+    mark: t['dark-blue'],
   },
   {
     heading: "Don't rebuild the wordmark",
@@ -66,14 +66,14 @@ export default function LogoAvoid() {
               {item.isRetype
                 ? <span style={{ fontFamily: "Georgia, serif", fontSize: 24, fontWeight: 700, color: "#000", letterSpacing: "-0.01em" }}>{brand.meta.client}</span>
                 : <FullLogoSvg
-                    markFill={item.mark!} wordmarkFill={item.wm!} innerTextFill={item.inner!}
+                    markFill={item.mark!}
                     style={{ height: 44, width: "auto", ...item.svgStyle }}
                   />
               }
             </div>
             <div style={{ padding: "20px 24px" }}>
-              <div style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", color: "#CC1188", textTransform: "uppercase", marginBottom: 8 }}>{item.heading}</div>
-              <div style={{ fontFamily: "Inter, sans-serif", fontSize: 13, color: "#111", lineHeight: 1.5 }}>{item.body}</div>
+              <div style={{ fontFamily: "Gellix, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", color: t['orange'], textTransform: "uppercase", marginBottom: 8 }}>{item.heading}</div>
+              <div style={{ fontFamily: "Gellix, sans-serif", fontSize: 13, color: "#111", lineHeight: 1.5 }}>{item.body}</div>
             </div>
           </div>
         ))}

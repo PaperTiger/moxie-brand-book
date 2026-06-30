@@ -63,7 +63,7 @@ function BarChart({ data, dark = false }: { data: BarDatum[]; dark?: boolean }) 
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width="100%"
-      style={{ display: "block", fontFamily: "'Inter', sans-serif" }}>
+      style={{ display: "block", fontFamily: "'Gellix', sans-serif" }}>
       {gridPcts.map(pct => {
         const y = mt + cH - (pct / 100) * cH
         return (
@@ -109,7 +109,7 @@ function LineChart() {
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width="100%"
-      style={{ display: "block", fontFamily: "'Inter', sans-serif" }}>
+      style={{ display: "block", fontFamily: "'Gellix', sans-serif" }}>
       {[25, 50, 75, 100].map(pct => {
         const y = ys(pct)
         return (
@@ -184,12 +184,12 @@ function DonutChart({ data, dark = false }: { data: DonutDatum[]; dark?: boolean
   return (
     <div className="donut-chart-row">
       <svg viewBox={`0 0 ${size} ${size}`} width="100%"
-        style={{ display: "block", maxWidth: size, flexShrink: 0, fontFamily: "'Inter', sans-serif" }}>
+        style={{ display: "block", maxWidth: size, flexShrink: 0, fontFamily: "'Gellix', sans-serif" }}>
         {segs.map((s, i) => <path key={i} d={s.path} fill={s.color} />)}
         <text x={cx} y={cy - 7} textAnchor="middle" fontSize="10"
-          fill={centerLabelColor} fontFamily="Inter, sans-serif">Total</text>
+          fill={centerLabelColor} fontFamily="Gellix, sans-serif">Total</text>
         <text x={cx} y={cy + 16} textAnchor="middle" fontSize="20" fontWeight="700"
-          fill={centerValueColor} fontFamily="DM Sans, sans-serif">100%</text>
+          fill={centerValueColor} fontFamily="Gellix, sans-serif">100%</text>
       </svg>
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         {data.map(d => (
@@ -197,7 +197,7 @@ function DonutChart({ data, dark = false }: { data: DonutDatum[]; dark?: boolean
             <div style={{ width: 12, height: 12, background: d.color, borderRadius: 2,
               flexShrink: 0,
               ...(d.color === t['white'] ? { outline: '1px solid rgba(255,255,255,0.35)' } : {}) }} />
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: legendTextColor }}>
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: legendTextColor }}>
               {d.label}
               <span style={{ color: legendPctColor, marginLeft: 10, fontWeight: 600 }}>
                 {Math.round(d.pct * 100)}%
@@ -215,11 +215,11 @@ function SpecRow({ label, spec }: { label: string; spec: string }) {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "180px 1fr",
       borderBottom: "1px solid #E5E5E5", padding: "13px 0" }}>
-      <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#111",
+      <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: "#111",
         fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", paddingTop: 1 }}>
         {label}
       </div>
-      <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#333",
+      <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: "#333",
         lineHeight: 1.5 }}>{spec}</div>
     </div>
   )
@@ -239,34 +239,34 @@ export default function DataVizCharts() {
       {/* Bar chart — light + dark */}
       <div style={{ marginBottom: 48 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 16 }}>
-          <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 15,
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 600, fontSize: 15,
             color: "#111" }}>Bar chart</div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#111",
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: "#111",
             letterSpacing: "0.07em", textTransform: "uppercase" }}>Multi-category</div>
         </div>
         <div className="chart-compare-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
           <div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600,
               letterSpacing: "0.08em", textTransform: "uppercase", color: "#111",
               marginBottom: 8 }}>On light</div>
             <div style={{ border: "1px solid #E5E5E5", padding: "24px 20px", background: "#fff" }}>
               <BarChart data={BAR_DATA_LIGHT} />
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#111",
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: "#111",
               marginTop: 8, lineHeight: 1.5 }}>
               Q5 uses Lime 800 <span style={{ fontFamily: "monospace", background: "#F3F3F3",
                 padding: "1px 5px", borderRadius: 2 }}>#5C705C</span>: 5.5:1 contrast, WCAG AA
             </div>
           </div>
           <div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600,
               letterSpacing: "0.08em", textTransform: "uppercase", color: "#111",
               marginBottom: 8 }}>On dark</div>
             <div style={{ border: "1px solid #E5E5E5", padding: "24px 20px",
               background: t['dark-blue'] }}>
               <BarChart data={BAR_DATA_DARK} dark />
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#111",
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: "#111",
               marginTop: 8, lineHeight: 1.5 }}>
               Q5 uses Lime 500 <span style={{ fontFamily: "monospace", background: "#F3F3F3",
                 padding: "1px 5px", borderRadius: 2 }}>#CCFFCC</span>: works on dark backgrounds
@@ -278,9 +278,9 @@ export default function DataVizCharts() {
       {/* Line chart */}
       <div style={{ marginBottom: 48 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 16 }}>
-          <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 15,
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 600, fontSize: 15,
             color: "#111" }}>Line chart</div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#111",
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: "#111",
             letterSpacing: "0.07em", textTransform: "uppercase" }}>Time series</div>
         </div>
         <div style={{ border: "1px solid #E5E5E5", padding: "32px 24px" }}>
@@ -291,14 +291,14 @@ export default function DataVizCharts() {
       {/* Donut chart — light + dark */}
       <div style={{ marginBottom: 56 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 16 }}>
-          <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 15,
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 600, fontSize: 15,
             color: "#111" }}>Donut chart</div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#111",
+          <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: "#111",
             letterSpacing: "0.07em", textTransform: "uppercase" }}>Part-to-whole</div>
         </div>
         <div className="chart-compare-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
           <div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600,
               letterSpacing: "0.08em", textTransform: "uppercase", color: "#111",
               marginBottom: 8 }}>On light</div>
             <div style={{ border: "1px solid #E5E5E5", padding: "32px 24px", background: "#fff" }}>
@@ -306,7 +306,7 @@ export default function DataVizCharts() {
             </div>
           </div>
           <div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
+            <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600,
               letterSpacing: "0.08em", textTransform: "uppercase", color: "#111",
               marginBottom: 8 }}>On dark</div>
             <div style={{ border: "1px solid #E5E5E5", padding: "32px 24px",
@@ -315,7 +315,7 @@ export default function DataVizCharts() {
             </div>
           </div>
         </div>
-        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#111",
+        <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: "#111",
           marginTop: 8, lineHeight: 1.5 }}>
           Dark variant: Deep Violet swapped for Bright Purple; Growth uses Pale Green; fifth slot uses White for maximum contrast
         </div>
@@ -323,7 +323,7 @@ export default function DataVizCharts() {
 
       {/* Style spec */}
       <div className="content-block">
-        <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, fontSize: 17,
+        <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
           margin: '0 0 4px', color: '#111' }}>Chart style specifications</h3>
         <div style={{ marginTop: 4, borderTop: "1px solid #E5E5E5" }}>
           <SpecRow label="Gridlines" spec="1px #E5E5E5, horizontal only, dashed on line charts, solid on bar charts" />
@@ -332,7 +332,7 @@ export default function DataVizCharts() {
           <SpecRow label="Legend" spec="Inter 11–12px / #333, below chart, horizontal, 16×3px rounded color block" />
           <SpecRow label="Bar corners" spec="border-radius: 2px, max 4px" />
           <SpecRow label="Background" spec="Always white (#FFFFFF) or brand dark. Ensures print-safe export." />
-          <SpecRow label="Chart title" spec="DM Sans 14px / 600 / #111, above chart, left-aligned" />
+          <SpecRow label="Chart title" spec="Gellix 14px / 600 / #111, above chart, left-aligned" />
           <SpecRow label="Chart subtitle" spec="Inter 12px / #4D4D4D, immediately below title, left-aligned" />
           <SpecRow label="Dot size (line)" spec="radius 4–5px, filled with the series color" />
           <SpecRow label="Stroke weight" spec="2–2.5px for lines, 1px for axis and grid lines" />

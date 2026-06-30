@@ -6,14 +6,14 @@ export default function PhotoIntro() {
     <div className="portrait-intro">
       <div style={{ display: 'flex', flexDirection: 'column', padding: 32, boxSizing: 'border-box' }}>
         <div className="section-label">Photography</div>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700,
+        <p style={{ fontFamily: 'Gellix, sans-serif', fontWeight: 700,
           fontSize: 'clamp(24px,3.2vw,48px)', lineHeight: 0.9, letterSpacing: '-0.02em',
           color: 'var(--charcoal)', maxWidth: 720, margin: '16px 0 0' }}>
           Photography that earns its place.
         </p>
         <div style={{ flex: 1 }} />
         <div style={{ maxWidth: 480 }}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, lineHeight: 1.65,
+          <p style={{ fontFamily: 'Gellix, sans-serif', fontSize: 16, lineHeight: 1.65,
             color: 'var(--charcoal)', margin: 0 }}>
             {client} imagery should feel real and human. Favor candid teams at work,
             real environments, and clean product shots over staged stock. Photography builds

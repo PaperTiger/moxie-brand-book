@@ -15,6 +15,7 @@ const SECTIONS: Record<string, React.LazyExoticComponent<() => React.ReactElemen
   'color-intro':        lazy(() => import('./sections/color/ColorIntro')),
   'primary-palette':    lazy(() => import('./sections/color/PrimaryPalette')),
   'secondary-palette':  lazy(() => import('./sections/color/SecondaryPalette')),
+  'tertiary-palette':   lazy(() => import('./sections/color/TertiaryPalette')),
   'color-combinations': lazy(() => import('./sections/color/ColorCombinations')),
   'color-pathways':     lazy(() => import('./sections/color/ColorPathways')),
   'type-intro':         lazy(() => import('./sections/typography/TypeIntro')),
@@ -60,8 +61,18 @@ function useBrandTokens() {
     const t = brand.typography
     const fontVars = `--display-font: '${t.displayFont}'; --body-font: '${t.bodyFont}'`
 
+    // Inject @font-face rules for locally hosted brand fonts. Paths are resolved
+    // against BASE_URL so they survive the GitHub Pages sub-path on deploy.
+    const base = import.meta.env.BASE_URL
+    const fontFmt = (file: string) =>
+      file.endsWith('.woff2') ? 'woff2' : file.endsWith('.woff') ? 'woff'
+      : file.endsWith('.otf') ? 'opentype' : 'truetype'
+    const fontFaces = t.fonts.map(f =>
+      `@font-face { font-family: '${f.family}'; font-style: normal; font-weight: ${f.weight}; font-display: swap; src: url('${base}${f.file.replace(/^\//, '')}') format('${fontFmt(f.file)}'); }`
+    ).join('\n')
+
     const style = document.createElement('style')
-    style.textContent = `:root { ${tokenDecls}; ${overviewDecls}; ${fontVars} }`
+    style.textContent = `${fontFaces}\n:root { ${tokenDecls}; ${overviewDecls}; ${fontVars} }`
     document.head.appendChild(style)
 
     // Favicon from brand mark
@@ -69,7 +80,7 @@ function useBrandTokens() {
     if (!link) { link = document.createElement('link') as HTMLLinkElement; document.head.appendChild(link) }
     link.rel = 'icon'
     link.type = 'image/svg+xml'
-    link.href = brand.meta.coverSealImage
+    link.href = `${import.meta.env.BASE_URL}images/logos/moxie-logo-mark-dark.svg`
 
     document.title = `${brand.meta.nameLine1}${brand.meta.nameLine2 ? ' ' + brand.meta.nameLine2 : ''}, Brand Identity`
     return () => { document.head.removeChild(style) }
@@ -96,7 +107,7 @@ function MobileHeader({ onOpen, onHome }: { onOpen: () => void; onHome: () => vo
           />
         )}
         {(!hasLogo || logoError) && (
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 14,
+          <span style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 600, fontSize: 14,
             letterSpacing: '-0.02em', color: 'var(--charcoal, #111)' }}>
             {brand.meta.nameLine1}{brand.meta.nameLine2 ? ' ' + brand.meta.nameLine2 : ''}
           </span>
@@ -222,7 +233,7 @@ export default function App() {
       />
 
       <main className="main">
-        <Suspense fallback={<div style={{ padding: 64, fontFamily: 'Inter, sans-serif', color: '#999' }}>Loading…</div>}>
+        <Suspense fallback={<div style={{ padding: 64, fontFamily: 'Gellix, sans-serif', color: '#999' }}>Loading…</div>}>
           <Section />
         </Suspense>
         <PageNav currentPage={currentPage} onNavigate={navigate} />

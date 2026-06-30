@@ -6,14 +6,14 @@ export default function AppIntro() {
     <div className="portrait-intro">
       <div style={{ display: 'flex', flexDirection: 'column', padding: 32, boxSizing: 'border-box' }}>
         <div className="section-label">Applications</div>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700,
+        <p style={{ fontFamily: 'Gellix, sans-serif', fontWeight: 700,
           fontSize: 'clamp(24px,3.2vw,48px)', lineHeight: 0.9, letterSpacing: '-0.02em',
           color: 'var(--charcoal)', maxWidth: 720, margin: '16px 0 0' }}>
           Every surface. Every scale.
         </p>
         <div style={{ flex: 1 }} />
         <div style={{ maxWidth: 480 }}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, lineHeight: 1.65,
+          <p style={{ fontFamily: 'Gellix, sans-serif', fontSize: 16, lineHeight: 1.65,
             color: 'var(--charcoal)', margin: 0 }}>
             The {client} brand is judged in its most everyday moments: a pitch deck slide,
             a reporting dashboard, a social ad, a conference booth. This section shows how the

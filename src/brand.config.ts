@@ -76,7 +76,7 @@ export interface BrandConfig {
     systemFallbackFont: string
     fonts: FontFace[]
   }
-  colors: { primary: ColorToken[]; secondary: ColorToken[] }
+  colors: { primary: ColorToken[]; secondary: ColorToken[]; tertiary: ColorToken[] }
   colorPairings: Array<{ bg: string; logo: string }>
   images: {
     photography: string[]   // filenames in public/images/photography/
@@ -85,22 +85,22 @@ export interface BrandConfig {
   nav: NavGroup[]
 }
 
-const _client = 'Brand Template'
+const _client = 'Moxie'
 
 const brand: BrandConfig = {
   typeScale: [
-    { size: '96px', name: 'Display XL',  family: 'DM Sans', weight: 700, ls: '-0.04em',  lh: 0.9 },
-    { size: '73px', name: 'Display L',   family: 'DM Sans', weight: 700, ls: '-0.03em',  lh: 0.9 },
-    { size: '64px', name: 'Display M',   family: 'DM Sans', weight: 700, ls: '-0.03em',  lh: 0.9 },
-    { size: '48px', name: 'Display S',   family: 'DM Sans', weight: 700, ls: '-0.025em', lh: 0.95 },
-    { size: '42px', name: 'Headline XL', family: 'DM Sans', weight: 600, ls: '-0.02em',  lh: 1.0 },
-    { size: '32px', name: 'Headline L',  family: 'DM Sans', weight: 600, ls: '-0.015em', lh: 1.1 },
-    { size: '24px', name: 'Headline M',  family: 'DM Sans', weight: 600, ls: '-0.01em',  lh: 1.2 },
-    { size: '21px', name: 'Headline S',  family: 'DM Sans', weight: 600, ls: '-0.01em',  lh: 1.2 },
-    { size: '18px', name: 'Body XL',     family: 'Inter',   weight: 400, ls: '-0.01em',  lh: 1.55 },
-    { size: '16px', name: 'Body L',      family: 'Inter',   weight: 400, ls: '-0.01em',  lh: 1.6 },
-    { size: '14px', name: 'Body M',      family: 'Inter',   weight: 400, ls: '0',         lh: 1.6 },
-    { size: '12px', name: 'Caption',     family: 'Inter',   weight: 400, ls: '0',         lh: 1.5 },
+    { size: '96px', name: 'Display XL',  family: 'Gellix', weight: 700, ls: '-0.04em',  lh: 0.9 },
+    { size: '73px', name: 'Display L',   family: 'Gellix', weight: 700, ls: '-0.03em',  lh: 0.9 },
+    { size: '64px', name: 'Display M',   family: 'Gellix', weight: 700, ls: '-0.03em',  lh: 0.9 },
+    { size: '48px', name: 'Display S',   family: 'Gellix', weight: 700, ls: '-0.025em', lh: 0.95 },
+    { size: '42px', name: 'Headline XL', family: 'Gellix', weight: 700, ls: '-0.02em',  lh: 1.0 },
+    { size: '32px', name: 'Headline L',  family: 'Gellix', weight: 700, ls: '-0.015em', lh: 1.1 },
+    { size: '24px', name: 'Headline M',  family: 'Gellix', weight: 700, ls: '-0.01em',  lh: 1.2 },
+    { size: '21px', name: 'Headline S',  family: 'Gellix', weight: 700, ls: '-0.01em',  lh: 1.2 },
+    { size: '18px', name: 'Body XL',     family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.55 },
+    { size: '16px', name: 'Body L',      family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.6 },
+    { size: '14px', name: 'Body M',      family: 'Gellix', weight: 500, ls: '0',         lh: 1.6 },
+    { size: '12px', name: 'Caption',     family: 'Gellix', weight: 500, ls: '0',         lh: 1.5 },
   ],
   meta: {
     client:           _client,
@@ -110,89 +110,107 @@ const brand: BrandConfig = {
     version:          'Version 1.0',
     date:             'June 2026',
     preparedBy:       'Paper Tiger',
-    sidebarLogoImage: `${import.meta.env.BASE_URL}images/logos/logo-full-primary.svg`,
-    coverSealImage: `${import.meta.env.BASE_URL}images/logos/logo-mark-white.svg`,
+    sidebarLogoImage: `${import.meta.env.BASE_URL}images/logos/moxie-logo-full-dark-gradient.svg`,
+    coverSealImage:   `${import.meta.env.BASE_URL}images/logos/moxie-logo-mark-light.svg`,
   },
 
   specimens: {
-    display96:        'Brand',
-    display73:        'Beyond the brief',
-    display64:        'Make it matter',
-    display48:        'Identity systems',
-    headline42:       'Design that works as hard as you do',
-    headline32:       'Built for scale. Made to last.',
-    headline24:       `${_client} creates visual identity systems that grow with your business.`,
-    headline21:       '12 industries. One trusted partner.',
-    body18:           `${_client} creates visual identity systems built to last.`,
-    body16:           `${_client} creates visual identity systems that grow with your business and stand out across every touchpoint.`,
-    body14:           `${_client} creates visual identity systems that grow with your business and stand out across every touchpoint. From brand strategy to final artwork, we make every element count.`,
-    body12:           `Caption. ${_client} creates visual identity systems that last.`,
-    sentence:         `${_client} creates visual identity systems built for scale and designed to last.`,
-    avoidText:        `${_client} creates identity systems that grow with your business.`,
+    display96:        'Moxie',
+    display73:        'Connected audio',
+    display64:        'Driving full-funnel results',
+    display48:        'Connected TV',
+    headline42:       'Mobile and display ads',
+    headline32:       'Attribution and reporting',
+    headline24:       `${_client} is a pioneer in developing and delivering programmatic media.`,
+    headline21:       '100% return on investment',
+    body18:           `${_client} is a pioneer in developing and delivering programmatic connected TV.`,
+    body16:           'Connected TV campaigns take time, the right tools, and real expertise. That is why we give you a full programmatic team: strategists, media buyers, and campaign managers.',
+    body14:           'Connected TV campaigns take time, the right tools, and real expertise. That is why we give you a full programmatic team: strategists, media buyers, and campaign managers, backed by a tech stack that is always evolving.',
+    body12:           'Connected TV campaigns take time, the right tools, and real expertise. That is why we give you a full programmatic team.',
+    sentence:         `${_client} builds connected TV campaigns that drive full-funnel results.`,
+    avoidText:        `${_client} drives full-funnel results across every connected screen.`,
     avoidTextPart1:   _client,
-    avoidTextPart2:   'creates identity systems that grow with your business.',
-    fallbackGoogle16: `${_client} creates visual identity systems built to last. When brand fonts are unavailable, DM Sans provides a clean, modern alternative.`,
-    fallbackSystem16: `${_client} creates visual identity systems built to last. When brand fonts are unavailable, Arial maintains clarity and legibility.`,
+    avoidTextPart2:   'drives full-funnel results across every connected screen.',
+    fallbackGoogle16: `${_client} builds connected TV campaigns that drive full-funnel results. When Gellix is unavailable, Outfit provides a clean, modern alternative.`,
+    fallbackSystem16: `${_client} builds connected TV campaigns that drive full-funnel results. When Gellix is unavailable, Arial maintains clarity and legibility.`,
   },
 
+  // Token keys are the theming API consumed across the book (CSS custom properties).
+  // Keys are kept stable; values are mapped to the Moxie palette.
   tokens: {
-    'lh-body':      '1.65',
-    'primary-blue':     '#8B3DFF',
-    'primary-blue-rgb': '139, 61, 255',
-    'dark-blue':    '#1A0066',
-    charcoal:       '#111111',
-    white:          '#FFFFFF',
-    orange:         '#FF5E14',
-    purple:         '#C44DFF',
-    'pale-green':   '#CCFFCC',
-    'lime-dark':    '#5C705C',
-    green:          '#22C55E',
-    fuscia:         '#FF1493',
-    gray:           '#F3F3F3',
+    'lh-body':          '1.65',
+    'primary-blue':     '#005668',   // Dark Teal — primary accent
+    'primary-blue-rgb': '0, 86, 104',
+    'dark-blue':        '#004553',    // Logo dark — deep teal, hero backgrounds
+    charcoal:           '#36363B',    // Dusk — near-black neutral
+    white:              '#FFFFFF',
+    orange:             '#F65F28',    // Flare
+    purple:             '#48A1FD',    // Azure
+    'pale-green':       '#C6E5DD',    // Mist — light tint
+    'lime-dark':        '#005668',    // Dark Teal — text on light tints
+    green:              '#BAEB65',    // Lime
+    fuscia:             '#55EFC7',    // Aurora
+    gray:               '#F0F7E8',    // Haze — neutral light
   },
 
   typography: {
-    displayFont:        'DM Sans',
-    bodyFont:           'Inter',
-    bodyFontUrl:        'https://fonts.google.com/specimen/Inter',
-    googleFallbackFont: 'DM Sans',
-    googleFallbackUrl:  'https://fonts.google.com/specimen/DM+Sans',
+    displayFont:        'Gellix',
+    bodyFont:           'Gellix',
+    bodyFontUrl:        'https://www.fontfabric.com/fonts/gellix/',
+    googleFallbackFont: 'Outfit',
+    googleFallbackUrl:  'https://fonts.google.com/specimen/Outfit',
     systemFallbackFont: 'Arial',
     fonts: [
-      { family: 'DM Sans', weight: '300 700', file: '/fonts/DMSans-VariableFont.ttf' },
-      { family: 'Inter',   weight: '300 700', file: '/fonts/Inter-VariableFont_opsz,wght.ttf' },
+      { family: 'Gellix',          weight: 400, file: 'fonts/Gellix/Gellix-Regular.woff2' },
+      { family: 'Gellix',          weight: 500, file: 'fonts/Gellix/Gellix-Medium.woff2' },
+      { family: 'Gellix',          weight: 700, file: 'fonts/Gellix/Gellix-Bold.woff2' },
+      { family: 'Queens Condensed', weight: 400, file: 'fonts/Queens Condensed/QueensCondensedTrial-Regular.ttf' },
     ],
   },
 
   colors: {
     primary: [
-      { name: 'Electric Violet', hex: '#8B3DFF', textColor: '#FFFFFF' },
-      { name: 'Deep Violet',     hex: '#1A0066', textColor: '#FFFFFF' },
-      { name: 'Black',           hex: '#111111', textColor: '#FFFFFF' },
-      { name: 'White',           hex: '#FFFFFF', textColor: '#000000', outline: '1px solid #DADADA' },
+      { name: 'Dark Teal',  hex: '#005668', textColor: '#C6E5DD' },
+      { name: 'Light Teal', hex: '#0090A4', textColor: '#C6E5DD' },
+      { name: 'Mist',       hex: '#C6E5DD', textColor: '#005668' },
+      { name: 'Veil',       hex: '#E2FEF7', textColor: '#0090A4', outline: '1px solid #C7C7C7' },
     ],
     secondary: [
-      { name: 'Coral',          hex: '#FF5E14', textColor: '#FFFFFF' },
-      { name: 'Bright Purple',  hex: '#C44DFF', textColor: '#FFFFFF' },
-      { name: 'Lime',           hex: '#CCFFCC', textColor: '#000000' },
-      { name: 'Gray',           hex: '#F3F3F3', textColor: '#000000', outline: '1px solid #DADADA' },
+      { name: 'Flare',     hex: '#F65F28', textColor: '#E2FEF7' },
+      { name: 'Lime',      hex: '#BAEB65', textColor: '#005668' },
+      { name: 'Aurora',    hex: '#55EFC7', textColor: '#005668' },
+      { name: 'Azure',     hex: '#48A1FD', textColor: '#E2FEF7' },
+    ],
+    tertiary: [
+      { name: 'Shadow',    hex: '#7E7E7E', textColor: '#E2FEF7' },
+      { name: 'Dusk',      hex: '#36363B', textColor: '#E2FEF7' },
+      { name: 'Haze',      hex: '#F0F7E8', textColor: '#005668', outline: '1px solid #DDE7D6' },
+      { name: 'Logo dark', hex: '#004553', textColor: '#E2FEF7' },
     ],
   },
 
   images: {
-    photography: [],
-    applications: [],
+    photography: [
+      'image-168.webp', 'image-169.webp', 'image-171.webp', 'image-172.webp',
+      'image-176.webp', 'image-185.webp', 'image-186.webp', 'image-188.webp',
+      'image-207.webp', 'image-208.webp', 'image-209.webp', 'image-210.webp',
+      'image-211.webp', 'image-212.webp', 'image-213.webp', 'image-214.webp',
+    ],
+    applications: [
+      'application-1.webp', 'application-2.webp', 'application-3.webp',
+      'application-4.webp', 'application-5.webp', 'application-6.webp',
+    ],
   },
 
   colorPairings: [
-    { bg: 'Electric Violet', logo: 'logo-full-white.svg' },
-    { bg: 'Deep Violet',     logo: 'logo-full-white.svg' },
-    { bg: 'Black',           logo: 'logo-full-white.svg' },
-    { bg: 'White',           logo: 'logo-full-dark.svg' },
-    { bg: 'Coral',           logo: 'logo-full-white.svg' },
-    { bg: 'Bright Purple',   logo: 'logo-full-white.svg' },
-    { bg: 'Lime',            logo: 'logo-full-dark.svg' },
-    { bg: 'Gray',            logo: 'logo-full-dark.svg' },
+    { bg: 'Mist',       logo: 'moxie-logo-full-dark-gradient.svg'},
+    { bg: 'Veil',       logo: 'moxie-logo-full-dark-gradient.svg'},
+    { bg: 'Dark Teal',  logo: 'moxie-logo-full-light.svg' },
+    { bg: 'Light Teal', logo: 'moxie-logo-full-light.svg' },
+    { bg: 'Aurora',     logo: 'moxie-logo-full-dark.svg' },
+    { bg: 'Flare',      logo: 'moxie-logo-full-dark.svg' },
+    { bg: 'Azure',      logo: 'moxie-logo-full-dark.svg' },
+    { bg: 'Lime',       logo: 'moxie-logo-full-dark.svg' },
   ],
 
   nav: [
@@ -218,6 +236,7 @@ const brand: BrandConfig = {
         { label: 'Introduction',              id: 'color-intro' },
         { label: 'Primary palette',           id: 'primary-palette' },
         { label: 'Secondary palette',         id: 'secondary-palette' },
+        { label: 'Tertiary palette',          id: 'tertiary-palette' },
         { label: 'Combinations & accessibility', id: 'color-combinations' },
         { label: 'Color pathways',            id: 'color-pathways' },
       ],

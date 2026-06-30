@@ -112,13 +112,13 @@ export default function ColorPathways() {
                     }}
                   >
                     <div style={{
-                      fontFamily: 'Inter, sans-serif', fontSize: 9,
+                      fontFamily: 'Gellix, sans-serif', fontSize: 9,
                       color: textColor, lineHeight: 1.2, opacity: 0.7,
                     }}>
                       {label}
                     </div>
                     <div style={{
-                      fontFamily: 'Inter, sans-serif', color: textColor,
+                      fontFamily: 'Gellix, sans-serif', color: textColor,
                       fontSize: isBase ? 11 : 9, fontWeight: isBase ? 700 : 400,
                     }}>
                       {hex}
@@ -130,7 +130,7 @@ export default function ColorPathways() {
                 {scale.map(({ label }) => (
                   <div key={label} style={{
                     flex: 1, padding: '5px 6px',
-                    fontFamily: 'Inter, sans-serif', fontSize: 8.5,
+                    fontFamily: 'Gellix, sans-serif', fontSize: 8.5,
                     color: 'rgba(0,0,0,0.32)', letterSpacing: '0.01em',
                     borderTop: '1px solid rgba(0,0,0,0.07)',
                     whiteSpace: 'nowrap' as const, overflow: 'hidden',
