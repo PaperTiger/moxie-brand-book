@@ -105,7 +105,7 @@ const brand: BrandConfig = {
   meta: {
     client:           _client,
     nameLine1:        'Brand',
-    nameLine2:        'Guidelines',
+    nameLine2:        'guidelines',
     title:            _client,
     version:          'Version 1.0',
     date:             'June 2026',
