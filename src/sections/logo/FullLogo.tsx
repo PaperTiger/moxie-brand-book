@@ -3,14 +3,17 @@ import { FullLogoSvg } from '../../components/ui/LogoSvg'
 import ClearspaceDiagram from '../../components/ui/ClearspaceDiagram'
 
 const t = brand.tokens
+const base = import.meta.env.BASE_URL
+const GRADIENT_FULL = `${base}images/logos/moxie-logo-full-dark-gradient.svg`
 
 const DARK = t['dark-blue']   // deep teal logo for light backgrounds
 const LIGHT = '#E2FEF7'        // Veil logo for dark / bright backgrounds
 
-const combos = [
-  { bg: '#FFFFFF',         label: 'White',      mark: DARK,  lbl: '#111' },
-  { bg: '#E2FEF7',         label: 'Veil',       mark: DARK,  lbl: '#111' },
-  { bg: '#C6E5DD',         label: 'Mist',       mark: DARK,  lbl: '#111' },
+// Lead with the gradient logo on neutral / light backgrounds; solid elsewhere.
+const combos: { bg: string; label: string; lbl: string; mark?: string; gradient?: boolean }[] = [
+  { bg: '#FFFFFF',         label: 'White',      gradient: true, lbl: '#111' },
+  { bg: '#E2FEF7',         label: 'Veil',       gradient: true, lbl: '#111' },
+  { bg: '#C6E5DD',         label: 'Mist',       gradient: true, lbl: '#111' },
   { bg: t['green'],        label: 'Lime',       mark: DARK,  lbl: '#111' },
   { bg: t['fuscia'],       label: 'Aurora',     mark: DARK,  lbl: '#111' },
   { bg: t['primary-blue'], label: 'Dark teal',  mark: LIGHT, lbl: '#fff' },
@@ -23,9 +26,9 @@ const combos = [
 export default function FullLogo() {
   return (
     <div>
-      {/* Hero header */}
-      <div className="logo-hero" style={{ background: t['dark-blue'] }}>
-        <FullLogoSvg markFill="#fff" wordmarkFill="#fff" innerTextFill={t['primary-blue']} style={{ maxHeight: 56, width: 'auto' }} />
+      {/* Hero header — gradient logo on Mist */}
+      <div className="logo-hero" style={{ background: '#C6E5DD' }}>
+        <img src={GRADIENT_FULL} alt={`${brand.meta.client} logo`} style={{ maxHeight: 56, width: 'auto', display: 'block' }} />
       </div>
 
       <div className="page">
@@ -47,8 +50,9 @@ export default function FullLogo() {
             Maintain a minimum clearspace of <strong>x</strong> on all sides, where x equals half the height of the {brand.meta.client} mark.
           </p>
           <ClearspaceDiagram
-            logoSrc={`${import.meta.env.BASE_URL}images/logos/moxie-logo-full-dark.svg`}
+            logoSrc={GRADIENT_FULL}
             logoAlt={`${brand.meta.client} clearspace`}
+            background="#E2FEF7"
             csX={34} logoMaxHeight={68}
             defLabel={`½ the height of the ${brand.meta.client} mark`}
           />
@@ -60,7 +64,9 @@ export default function FullLogo() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 0 }}>
           {combos.map(c => (
             <div key={c.label} style={{ background: c.bg, padding: '28px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, aspectRatio: '4/3', justifyContent: 'center' }}>
-              <FullLogoSvg markFill={c.mark} style={{ maxHeight: 40, width: 'auto' }} />
+              {c.gradient
+                ? <img src={GRADIENT_FULL} alt={`${brand.meta.client} logo`} style={{ maxHeight: 40, width: 'auto', display: 'block' }} />
+                : <FullLogoSvg markFill={c.mark} style={{ maxHeight: 40, width: 'auto' }} />}
               <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', color: c.lbl, textTransform: 'uppercase', opacity: 0.7 }}>{c.label}</span>
             </div>
           ))}

@@ -3,14 +3,17 @@ import { StackedLogoSvg } from '../../components/ui/LogoSvg'
 import ClearspaceDiagram from '../../components/ui/ClearspaceDiagram'
 
 const t = brand.tokens
+const base = import.meta.env.BASE_URL
+const GRADIENT_STACKED = `${base}images/logos/moxie-logo-stacked-dark-gradient.svg`
 
 const DARK = t['dark-blue']
 const LIGHT = '#E2FEF7'
 
-const combos = [
-  { bg: '#FFFFFF',         mark: DARK,  label: 'White',      lbl: '#111' },
-  { bg: '#E2FEF7',         mark: DARK,  label: 'Veil',       lbl: '#111' },
-  { bg: '#C6E5DD',         mark: DARK,  label: 'Mist',       lbl: '#111' },
+// Lead with the gradient logo on neutral / light backgrounds; solid elsewhere.
+const combos: { bg: string; label: string; lbl: string; mark?: string; gradient?: boolean }[] = [
+  { bg: '#FFFFFF',         gradient: true, label: 'White',      lbl: '#111' },
+  { bg: '#E2FEF7',         gradient: true, label: 'Veil',       lbl: '#111' },
+  { bg: '#C6E5DD',         gradient: true, label: 'Mist',       lbl: '#111' },
   { bg: t['green'],        mark: DARK,  label: 'Lime',       lbl: '#111' },
   { bg: t['fuscia'],       mark: DARK,  label: 'Aurora',     lbl: '#111' },
   { bg: t['primary-blue'], mark: LIGHT, label: 'Dark teal',  lbl: '#fff' },
@@ -23,9 +26,9 @@ const combos = [
 export default function StackedLogo() {
   return (
     <div>
-      {/* Hero header */}
-      <div className="logo-hero" style={{ background: t['dark-blue'], minHeight: 280 }}>
-        <StackedLogoSvg markFill="#fff" wordmarkFill="#fff" innerTextFill={t['primary-blue']} style={{ maxHeight: 160, width: 'auto' }} />
+      {/* Hero header — gradient logo on Mist */}
+      <div className="logo-hero" style={{ background: '#C6E5DD', minHeight: 280 }}>
+        <img src={GRADIENT_STACKED} alt={`${brand.meta.client} stacked logo`} style={{ maxHeight: 160, width: 'auto', display: 'block' }} />
       </div>
 
       <div className="page">
@@ -47,8 +50,9 @@ export default function StackedLogo() {
             x equals ½ the height of the {brand.meta.client} mark. Maintain this distance on all four sides.
           </p>
           <ClearspaceDiagram
-            logoSrc={`${import.meta.env.BASE_URL}images/logos/moxie-logo-stacked-dark.svg`}
+            logoSrc={GRADIENT_STACKED}
             logoAlt="Stacked logo clearspace"
+            background="#E2FEF7"
             csX={75} logoMaxHeight={150}
             defLabel={`½ the height of the ${brand.meta.client} mark`}
           />
@@ -60,7 +64,9 @@ export default function StackedLogo() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 0 }}>
             {combos.map(c => (
               <div key={c.label} style={{ background: c.bg, padding: '32px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, justifyContent: 'center' }}>
-                <StackedLogoSvg markFill={c.mark} style={{ maxHeight: 80, width: 'auto' }} />
+                {c.gradient
+                  ? <img src={GRADIENT_STACKED} alt={`${brand.meta.client} stacked logo`} style={{ maxHeight: 80, width: 'auto', display: 'block' }} />
+                  : <StackedLogoSvg markFill={c.mark} style={{ maxHeight: 80, width: 'auto' }} />}
                 <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', color: c.lbl, textTransform: 'uppercase', opacity: 0.7 }}>{c.label}</span>
               </div>
             ))}

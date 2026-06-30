@@ -1,7 +1,9 @@
 import brand from '../../brand.config'
-import { FullLogoSvg } from '../../components/ui/LogoSvg'
 
 const t = brand.tokens
+const base = import.meta.env.BASE_URL
+const GRADIENT_FULL = `${base}images/logos/moxie-logo-full-dark-gradient.svg`
+const FULL_LIGHT = `${base}images/logos/moxie-logo-full-light.svg`
 
 function PartnerLogo({ height = 40, muted = false }: { height?: number; muted?: boolean }) {
   const blockColor = muted ? 'rgba(255,255,255,0.35)' : '#C4C4C4'
@@ -64,10 +66,8 @@ export default function Cobranding() {
       <div className="cobranding-pair-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, marginBottom: 2 }}>
         <div style={{ background: "#F8F8F8", padding: "52px 40px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 28, marginBottom: 20 }}>
-            <FullLogoSvg
-              markFill={t['dark-blue']}
-              style={{ height: 40, width: "auto" }}
-            />
+            <img src={GRADIENT_FULL} alt={`${brand.meta.client} logo`}
+              style={{ height: 40, width: "auto", display: "block" }} />
             <div style={{ width: 1, height: 52, background: "#C4C4C4" }} />
             <PartnerLogo height={40} />
           </div>
@@ -79,10 +79,8 @@ export default function Cobranding() {
         <div style={{ background: t['dark-blue'], padding: "52px 40px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start",
             gap: 22, marginBottom: 20 }}>
-            <FullLogoSvg
-              markFill="#fff" wordmarkFill="#fff" innerTextFill={t['primary-blue']}
-              style={{ height: 40, width: "auto" }}
-            />
+            <img src={FULL_LIGHT} alt={`${brand.meta.client} logo`}
+              style={{ height: 40, width: "auto", display: "block" }} />
             <div style={{ width: 64, height: 1, background: "rgba(255,255,255,0.2)" }} />
             <PartnerLogo height={40} muted />
           </div>
@@ -105,10 +103,8 @@ export default function Cobranding() {
         <div className="cobranding-clearspace-box" style={{ border: "1px solid #E5E5E5", padding: "48px 40px",
           display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <FullLogoSvg
-              markFill={t['dark-blue']}
-              style={{ height: 44, width: "auto" }}
-            />
+            <img src={GRADIENT_FULL} alt={`${brand.meta.client} logo`}
+              style={{ height: 44, width: "auto", display: "block" }} />
             <div style={{ width: csXpx, height: 44,
               background: `color-mix(in srgb, ${t['primary-blue']} 12%, transparent)`,
               display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -149,8 +145,8 @@ export default function Cobranding() {
           <div style={{ background: "#F8F8F8", padding: "28px 24px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 20,
               marginBottom: 16, minHeight: 64 }}>
-              <FullLogoSvg markFill={t['primary-blue']} wordmarkFill={t['charcoal']} innerTextFill="#fff"
-                style={{ height: 40, width: "auto" }} />
+              <img src={GRADIENT_FULL} alt={`${brand.meta.client} logo`}
+                style={{ height: 40, width: "auto", display: "block" }} />
               <div style={{ width: 1, height: 52, background: "#C4C4C4" }} />
               <PartnerLogo height={40} />
             </div>
@@ -162,8 +158,8 @@ export default function Cobranding() {
           <div style={{ background: "#F8F8F8", padding: "28px 24px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 20,
               marginBottom: 16, minHeight: 64 }}>
-              <FullLogoSvg markFill={t['primary-blue']} wordmarkFill={t['charcoal']} innerTextFill="#fff"
-                style={{ height: 22, width: "auto", opacity: 0.7 }} />
+              <img src={GRADIENT_FULL} alt={`${brand.meta.client} logo`}
+                style={{ height: 22, width: "auto", opacity: 0.7, display: "block" }} />
               <div style={{ width: 1, height: 64, background: "#C4C4C4" }} />
               <PartnerLogo height={64} />
             </div>

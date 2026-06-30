@@ -137,7 +137,7 @@ body.print-active .print-book-page { overflow: hidden; }
 /* ── Cover / hero ──────────────────────────────────────────────── */
 .cover {
   min-height: 100dvh;
-  background: var(--primary-blue, #8B3DFF);
+  background: #C6E5DD;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -151,7 +151,7 @@ body.print-active .print-book-page { overflow: hidden; }
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.88;
-  color: #E2FEF7;
+  color: #005668;
   margin: 0;
 }
 
@@ -159,16 +159,16 @@ body.print-active .print-book-page { overflow: hidden; }
   font-family: var(--body-font, 'Gellix'), sans-serif;
   font-size: 13px;
   line-height: 1.8;
-  color: #E2FEF7;
+  color: #005668;
 }
 
 .cover-seal {
   position: absolute;
   bottom: 40px;
   right: 48px;
-  width: clamp(120px, 14vw, 200px);
-  height: clamp(120px, 14vw, 200px);
-  opacity: 0.22;
+  width: clamp(140px, 18vw, 260px);
+  height: clamp(140px, 18vw, 260px);
+  opacity: 1;
 }
 
 /* ── Color swatches ────────────────────────────────────────────── */

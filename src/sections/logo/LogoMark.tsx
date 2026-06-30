@@ -62,7 +62,7 @@ export default function LogoMark() {
         {/* Approved color combinations */}
         <div style={{ marginTop: 48, paddingTop: 0 }}>
           <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 16px', color: '#111' }}>Approved color combinations</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: `repeat(${combos.length}, 1fr)`, gap: 0 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 0 }}>
             {combos.map(c => (
               <div key={c.label} style={{ background: c.bg, padding: '32px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, justifyContent: 'center', aspectRatio: '1' }}>
                 {c.gradient

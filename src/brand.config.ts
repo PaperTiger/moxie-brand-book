@@ -104,14 +104,14 @@ const brand: BrandConfig = {
   ],
   meta: {
     client:           _client,
-    nameLine1:        _client,
-    nameLine2:        '',
-    title:            'Brand guidelines',
+    nameLine1:        'Brand',
+    nameLine2:        'Guidelines',
+    title:            _client,
     version:          'Version 1.0',
     date:             'June 2026',
     preparedBy:       'Paper Tiger',
     sidebarLogoImage: `${import.meta.env.BASE_URL}images/logos/moxie-logo-full-dark-gradient.svg`,
-    coverSealImage:   `${import.meta.env.BASE_URL}images/logos/moxie-logo-mark-light.svg`,
+    coverSealImage:   `${import.meta.env.BASE_URL}images/logos/moxie-logo-mark-gradient.svg`,
   },
 
   specimens: {
