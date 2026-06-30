@@ -164,7 +164,7 @@ const brand: BrandConfig = {
       { family: 'Gellix',          weight: 400, file: 'fonts/Gellix/Gellix-Regular.woff2' },
       { family: 'Gellix',          weight: 500, file: 'fonts/Gellix/Gellix-Medium.woff2' },
       { family: 'Gellix',          weight: 700, file: 'fonts/Gellix/Gellix-Bold.woff2' },
-      { family: 'Queens Condensed', weight: 400, file: 'fonts/Queens Condensed/QueensCondensed_W-Regular.woff2' },
+      { family: 'Queens Condensed', weight: 400, file: 'fonts/Queens/Web/QueensCondensed_W-Regular.woff2' },
     ],
   },
 

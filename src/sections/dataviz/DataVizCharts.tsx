@@ -100,24 +100,6 @@ const LINE_DATA = [
   { label: 'Coalition',    color: '#48A1FD', values: [9, 12, 17, 21, 28, 31, 39, 47] },
 ]
 
-// Catmull-Rom → cubic bezier for smooth curves through the data points
-function smoothPath(pts: [number, number][]): string {
-  if (pts.length < 2) return ''
-  const d = [`M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`]
-  for (let i = 0; i < pts.length - 1; i++) {
-    const p0 = pts[i - 1] ?? pts[i]
-    const p1 = pts[i]
-    const p2 = pts[i + 1]
-    const p3 = pts[i + 2] ?? p2
-    const c1x = p1[0] + (p2[0] - p0[0]) / 6
-    const c1y = p1[1] + (p2[1] - p0[1]) / 6
-    const c2x = p2[0] - (p3[0] - p1[0]) / 6
-    const c2y = p2[1] - (p3[1] - p1[1]) / 6
-    d.push(`C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`)
-  }
-  return d.join(' ')
-}
-
 function LineChart() {
   const W = 560, H = 300
   const ml = 36, mr = 16, mt = 16, mb = 34
@@ -132,15 +114,6 @@ function LineChart() {
     <div>
       <svg viewBox={`0 0 ${W} ${H}`} width="100%"
         style={{ display: "block", fontFamily: "'Gellix', sans-serif" }}>
-        <defs>
-          {LINE_DATA.map((s, i) => (
-            <linearGradient key={i} id={`lc-grad-${i}`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={s.color} stopOpacity="0.20" />
-              <stop offset="100%" stopColor={s.color} stopOpacity="0" />
-            </linearGradient>
-          ))}
-        </defs>
-
         {[0, 25, 50, 75, 100].map(pct => {
           const y = ys(pct)
           return (
@@ -155,22 +128,14 @@ function LineChart() {
           <text key={m} x={xs(i)} y={mt + cH + 18} textAnchor="middle" fontSize="10" fill={axis} opacity="0.6">{m}</text>
         ))}
 
-        {/* Area fills (drawn back-to-front) */}
+        {/* Straight line segments + data points */}
         {LINE_DATA.map((s, i) => {
-          const pts = s.values.map((v, j) => [xs(j), ys(v)] as [number, number])
-          const area = `${smoothPath(pts)} L ${xs(n - 1).toFixed(1)} ${ys(0).toFixed(1)} L ${xs(0).toFixed(1)} ${ys(0).toFixed(1)} Z`
-          return <path key={i} d={area} fill={`url(#lc-grad-${i})`} />
-        })}
-
-        {/* Smooth lines + data points */}
-        {LINE_DATA.map((s, i) => {
-          const pts = s.values.map((v, j) => [xs(j), ys(v)] as [number, number])
+          const pts = s.values.map((v, j) => `${xs(j).toFixed(1)},${ys(v).toFixed(1)}`).join(' ')
           return (
             <g key={i}>
-              <path d={smoothPath(pts)} fill="none" stroke={s.color} strokeWidth="2.5"
-                strokeLinecap="round" strokeLinejoin="round" />
-              {pts.map(([x, y], j) => (
-                <circle key={j} cx={x} cy={y} r="3" fill={s.color} stroke="#fff" strokeWidth="1.5" />
+              <polyline points={pts} fill="none" stroke={s.color} strokeWidth="2.5" />
+              {s.values.map((v, j) => (
+                <circle key={j} cx={xs(j)} cy={ys(v)} r="3.5" fill={s.color} />
               ))}
             </g>
           )
