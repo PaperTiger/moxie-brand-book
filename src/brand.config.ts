@@ -77,7 +77,7 @@ export interface BrandConfig {
     fonts: FontFace[]
   }
   colors: { primary: ColorToken[]; secondary: ColorToken[]; tertiary: ColorToken[] }
-  colorPairings: Array<{ bg: string; logo: string }>
+  colorPairings: Array<{ bg: string; text: string; logo: string }>
   images: {
     photography: string[]   // filenames in public/images/photography/
     applications: string[]  // filenames in public/images/applications/
@@ -116,23 +116,23 @@ const brand: BrandConfig = {
 
   specimens: {
     display96:        'Moxie',
-    display73:        'Connected audio',
-    display64:        'Driving full-funnel results',
-    display48:        'Connected TV',
-    headline42:       'Mobile and display ads',
-    headline32:       'Attribution and reporting',
-    headline24:       `${_client} is a pioneer in developing and delivering programmatic media.`,
-    headline21:       '100% return on investment',
-    body18:           `${_client} is a pioneer in developing and delivering programmatic connected TV.`,
-    body16:           'Connected TV campaigns take time, the right tools, and real expertise. That is why we give you a full programmatic team: strategists, media buyers, and campaign managers.',
-    body14:           'Connected TV campaigns take time, the right tools, and real expertise. That is why we give you a full programmatic team: strategists, media buyers, and campaign managers, backed by a tech stack that is always evolving.',
-    body12:           'Connected TV campaigns take time, the right tools, and real expertise. That is why we give you a full programmatic team.',
-    sentence:         `${_client} builds connected TV campaigns that drive full-funnel results.`,
-    avoidText:        `${_client} drives full-funnel results across every connected screen.`,
-    avoidTextPart1:   _client,
-    avoidTextPart2:   'drives full-funnel results across every connected screen.',
-    fallbackGoogle16: `${_client} builds connected TV campaigns that drive full-funnel results. When Gellix is unavailable, Outfit provides a clean, modern alternative.`,
-    fallbackSystem16: `${_client} builds connected TV campaigns that drive full-funnel results. When Gellix is unavailable, Arial maintains clarity and legibility.`,
+    display73:        'Bold impact',
+    display64:        'We architect change',
+    display48:        'Fearless results',
+    headline42:       'Public affairs, reimagined',
+    headline32:       'We shape conversations and move policy.',
+    headline24:       'A national boutique public affairs firm driving fearless results for brands that dare to stand out.',
+    headline21:       'Unique depth. Bold impact.',
+    body18:           'Moxie Strategies is a national boutique public affairs firm driving fearless results for brands and causes that dare to stand out.',
+    body16:           'We shape conversations, move policy, and craft campaigns that drive results, operating at the intersection of data, digital innovation, and best-in-class strategy.',
+    body14:           'We shape conversations, move policy, and craft campaigns that drive results. Operating at the intersection of data and geopolitical insight, digital innovation, and best-in-class strategy, we turn vision into action for brands and causes across healthcare, energy, infrastructure, and advocacy.',
+    body12:           'Moxie Strategies: a national boutique public affairs firm driving fearless results.',
+    sentence:         'Moxie Strategies turns vision into action with unique depth and bold impact.',
+    avoidText:        'Moxie Strategies drives fearless results for brands that dare to stand out.',
+    avoidTextPart1:   'Moxie Strategies',
+    avoidTextPart2:   'drives fearless results for brands that dare to stand out.',
+    fallbackGoogle16: 'Moxie Strategies shapes conversations, moves policy, and drives fearless results. When Gellix is unavailable, Outfit provides a clean, modern alternative.',
+    fallbackSystem16: 'Moxie Strategies shapes conversations, moves policy, and drives fearless results. When Gellix is unavailable, Arial maintains clarity and legibility.',
   },
 
   // Token keys are the theming API consumed across the book (CSS custom properties).
@@ -164,7 +164,7 @@ const brand: BrandConfig = {
       { family: 'Gellix',          weight: 400, file: 'fonts/Gellix/Gellix-Regular.woff2' },
       { family: 'Gellix',          weight: 500, file: 'fonts/Gellix/Gellix-Medium.woff2' },
       { family: 'Gellix',          weight: 700, file: 'fonts/Gellix/Gellix-Bold.woff2' },
-      { family: 'Queens Condensed', weight: 400, file: 'fonts/Queens Condensed/QueensCondensedTrial-Regular.ttf' },
+      { family: 'Queens Condensed', weight: 400, file: 'fonts/Queens Condensed/QueensCondensed_W-Regular.woff2' },
     ],
   },
 
@@ -202,15 +202,17 @@ const brand: BrandConfig = {
     ],
   },
 
+  // Approved pairings from Figma (Color Pairings page): bg / text. Some intentionally
+  // fail WCAG body-text contrast — those are surfaced as FAIL rather than auto-corrected.
   colorPairings: [
-    { bg: 'Mist',       logo: 'moxie-logo-full-dark-gradient.svg'},
-    { bg: 'Veil',       logo: 'moxie-logo-full-dark-gradient.svg'},
-    { bg: 'Dark Teal',  logo: 'moxie-logo-full-light.svg' },
-    { bg: 'Light Teal', logo: 'moxie-logo-full-light.svg' },
-    { bg: 'Aurora',     logo: 'moxie-logo-full-dark.svg' },
-    { bg: 'Flare',      logo: 'moxie-logo-full-dark.svg' },
-    { bg: 'Azure',      logo: 'moxie-logo-full-dark.svg' },
-    { bg: 'Lime',       logo: 'moxie-logo-full-dark.svg' },
+    { bg: 'Mist',       text: 'Dark Teal', logo: 'moxie-logo-full-dark-gradient.svg' },
+    { bg: 'Veil',       text: 'Dark Teal', logo: 'moxie-logo-full-dark-gradient.svg' },
+    { bg: 'Dark Teal',  text: 'Veil',      logo: 'moxie-logo-full-light.svg' },
+    { bg: 'Light Teal', text: 'Veil',      logo: 'moxie-logo-full-light.svg' },
+    { bg: 'Aurora',     text: 'Dark Teal', logo: 'moxie-logo-full-dark.svg' },
+    { bg: 'Flare',      text: 'Veil',      logo: 'moxie-logo-full-dark.svg' },
+    { bg: 'Azure',      text: 'Veil',      logo: 'moxie-logo-full-dark.svg' },
+    { bg: 'Lime',       text: 'Dark Teal', logo: 'moxie-logo-full-dark.svg' },
   ],
 
   nav: [
@@ -283,10 +285,6 @@ const brand: BrandConfig = {
         { label: 'Introduction', id: 'app-intro' },
         { label: 'Examples',     id: 'app-examples' },
       ],
-    },
-    {
-      group: 'Iconography',
-      items: [{ label: 'Introduction', id: 'icon-intro' }],
     },
     {
       group: 'Print & export',

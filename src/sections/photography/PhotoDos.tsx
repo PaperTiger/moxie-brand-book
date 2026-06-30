@@ -1,11 +1,16 @@
+import brand from '../../brand.config'
+
+const base = import.meta.env.BASE_URL
+const photos = brand.images.photography
+
 export default function PhotoDos() {
   const items = [
-    { seed: "pd1", caption: "Shoot organic compositions where the subject does not feel staged." },
-    { seed: "pd2", caption: "Play with light and shadow to create visual interest and depth." },
-    { seed: "pd3", caption: "Rich and warm color tones make photography feel human and approachable." },
-    { seed: "pd4", caption: "Capture real moments of collaboration and problem-solving at work." },
-    { seed: "pd5", caption: "Clean product and technology shots against simple, uncluttered backgrounds." },
-    { seed: "pd6", caption: "Real environments: offices, workshops, studios, and creative spaces." },
+    { img: photos[0], caption: "Shoot organic compositions where the subject does not feel staged." },
+    { img: photos[1], caption: "Play with light and shadow to create visual interest and depth." },
+    { img: photos[2], caption: "Rich and warm color tones make photography feel human and approachable." },
+    { img: photos[13], caption: "Capture real moments of collaboration and problem-solving at work." },
+    { img: photos[14], caption: "Show people in the real Moxie space, with the brand present in the environment." },
+    { img: photos[15], caption: "Use real Moxie environments: the studio, the office, the rooms where the work happens." },
   ]
   return (
     <div className="photo-layout">
@@ -18,9 +23,9 @@ export default function PhotoDos() {
         </p>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
-        {items.map(item => (
-          <div key={item.seed} style={{ paddingBottom: 40 }}>
-            <img src={`https://picsum.photos/seed/${item.seed}/600/400`} alt="" style={{ width: "100%", height: 240, objectFit: "cover", display: "block", marginBottom: 14 }} />
+        {items.map((item, i) => (
+          <div key={i} style={{ paddingBottom: 40 }}>
+            <img src={`${base}images/photography/${item.img}`} alt="" style={{ width: "100%", height: 240, objectFit: "cover", display: "block", marginBottom: 14 }} />
             <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
               <div style={{ width: 20, height: 20, background: "var(--dark-blue)", borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1 }}>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/></svg>

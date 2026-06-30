@@ -10,7 +10,7 @@ const rows = [
     specs: '24–72 px · −4% tracking · 100% leading · Sentence case',
     ex: (
       <div style={{ fontFamily: `'${sf}', sans-serif`, fontWeight: 700, fontSize: 'clamp(28px,4vw,56px)', lineHeight: 0.95, letterSpacing: '-0.04em', color: 'var(--charcoal)' }}>
-        Design that works<br />as hard as the brand.
+        Bold impact that works<br />as hard as you do.
       </div>
     ),
   },

@@ -1,14 +1,17 @@
 import brand from '../../brand.config'
 
+const base = import.meta.env.BASE_URL
+const photos = brand.images.photography
+
 export default function PhotoDonts() {
   const client = brand.meta.client
   const items = [
-    { seed: "pdn1", filter: "saturate(0.2) brightness(1.15)", caption: "Don't shoot desaturated, stylised imagery that strips the brand's warmth and character." },
-    { seed: "pdn2", filter: "brightness(1.6) contrast(1.1)", caption: "Avoid blown-out, over-exposed images that feel generic and lack a sense of place." },
-    { seed: "pdn3", filter: "hue-rotate(180deg) saturate(0.5)", caption: "Don't apply heavy color grading or filters that make images feel processed and inauthentic." },
-    { seed: "pdn4", filter: "saturate(0.1) brightness(1.2) contrast(1.1)", caption: `Avoid generic stock imagery that could belong to any brand. Use photography specific to ${client}.` },
-    { seed: "pdn5", filter: "brightness(1.8) contrast(0.85) saturate(0.4)", caption: "Don't shoot from perspectives that make the brand feel abstract rather than lived-in." },
-    { seed: "pdn6", filter: "saturate(2.2) contrast(1.3) brightness(1.1)", caption: "Avoid overly polished promotional imagery that projects aspiration over authenticity." },
+    { img: photos[6],  filter: "saturate(0.2) brightness(1.15)", caption: "Don't shoot desaturated, stylised imagery that strips the brand's warmth and character." },
+    { img: photos[7],  filter: "brightness(1.6) contrast(1.1)", caption: "Avoid blown-out, over-exposed images that feel generic and lack a sense of place." },
+    { img: photos[8],  filter: "hue-rotate(180deg) saturate(0.5)", caption: "Don't apply heavy color grading or filters that make images feel processed and inauthentic." },
+    { img: photos[9],  filter: "saturate(0.1) brightness(1.2) contrast(1.1)", caption: `Avoid generic stock imagery that could belong to any brand. Use photography specific to ${client}.` },
+    { img: photos[10], filter: "brightness(1.8) contrast(0.85) saturate(0.4)", caption: "Don't shoot from perspectives that make the brand feel abstract rather than lived-in." },
+    { img: photos[11], filter: "saturate(2.2) contrast(1.3) brightness(1.1)", caption: "Avoid overly polished promotional imagery that projects aspiration over authenticity." },
   ]
   return (
     <div className="photo-layout">
@@ -21,11 +24,11 @@ export default function PhotoDonts() {
         </p>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
-        {items.map(item => (
-          <div key={item.seed} style={{ paddingBottom: 40 }}>
-            <img src={`https://picsum.photos/seed/${item.seed}/600/400`} alt="" style={{ width: "100%", height: 240, objectFit: "cover", display: "block", marginBottom: 14, filter: item.filter }} />
+        {items.map((item, i) => (
+          <div key={i} style={{ paddingBottom: 40 }}>
+            <img src={`${base}images/photography/${item.img}`} alt="" style={{ width: "100%", height: 240, objectFit: "cover", display: "block", marginBottom: 14, filter: item.filter }} />
             <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-              <div style={{ width: 20, height: 20, background: "#CC1188", borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1 }}>
+              <div style={{ width: 20, height: 20, background: "var(--orange)", borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1 }}>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M18 6L6 18M6 6l12 12"/></svg>
               </div>
               <div style={{ fontFamily: "Gellix, sans-serif", fontSize: 13, color: "var(--charcoal)", lineHeight: 1.5 }}>{item.caption}</div>

@@ -26,22 +26,22 @@ function donutSegment(
 }
 
 // ── Bar chart data ────────────────────────────────────────────────
-// Light version: lime-dark (#5C705C) for Q5 — 5.5:1 contrast on white, WCAG AA
+// Light version: darker secondary tones that hold contrast on white (Lime/Aurora are too light here)
 const BAR_DATA_LIGHT = [
-  { label: 'Q1', value: 63, color: t['primary-blue'] },
-  { label: 'Q2', value: 82, color: t['orange'] },
-  { label: 'Q3', value: 47, color: t['dark-blue'] },
-  { label: 'Q4', value: 91, color: t['purple'] },
-  { label: 'Q5', value: 74, color: t['lime-dark'] },
+  { label: 'Q1', value: 63, color: '#005668' },   // Dark Teal
+  { label: 'Q2', value: 82, color: '#F65F28' },   // Flare
+  { label: 'Q3', value: 47, color: '#0090A4' },   // Light Teal
+  { label: 'Q4', value: 91, color: '#48A1FD' },   // Azure
+  { label: 'Q5', value: 74, color: '#6F8B22' },   // Deep Lime — distinct from the teals
 ]
 
-// Dark version: Lime (#CCFFCC) on dark, White for Q4 contrast
+// Dark version: the bright secondaries (Lime, Aurora) read well on a dark ground
 const BAR_DATA_DARK = [
-  { label: 'Q1', value: 63, color: t['primary-blue'] },
-  { label: 'Q2', value: 82, color: t['orange'] },
-  { label: 'Q3', value: 47, color: t['purple'] },
-  { label: 'Q4', value: 91, color: t['white'] },
-  { label: 'Q5', value: 74, color: t['pale-green'] },
+  { label: 'Q1', value: 63, color: '#55EFC7' },   // Aurora
+  { label: 'Q2', value: 82, color: '#F65F28' },   // Flare
+  { label: 'Q3', value: 47, color: '#48A1FD' },   // Azure
+  { label: 'Q4', value: 91, color: '#BAEB65' },   // Lime
+  { label: 'Q5', value: 74, color: '#C6E5DD' },   // Mist
 ]
 
 interface BarDatum { label: string; value: number; color: string }
@@ -92,78 +92,122 @@ function BarChart({ data, dark = false }: { data: BarDatum[]; dark?: boolean }) 
 }
 
 // ── Line chart ───────────────────────────────────────────────────
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
 const LINE_DATA = [
-  { label: 'Series A', color: t['primary-blue'], values: [42, 58, 51, 74, 67, 89] },
-  { label: 'Series B', color: t['orange'],        values: [28, 35, 48, 42, 60, 72] },
+  { label: 'Earned media', color: '#005668', values: [38, 45, 52, 49, 63, 71, 78, 86] },
+  { label: 'Paid reach',   color: '#F65F28', values: [22, 30, 41, 38, 47, 55, 61, 69] },
+  { label: 'Owned',        color: '#0090A4', values: [15, 19, 24, 33, 35, 44, 52, 58] },
+  { label: 'Coalition',    color: '#48A1FD', values: [9, 12, 17, 21, 28, 31, 39, 47] },
 ]
 
+// Catmull-Rom → cubic bezier for smooth curves through the data points
+function smoothPath(pts: [number, number][]): string {
+  if (pts.length < 2) return ''
+  const d = [`M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`]
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] ?? pts[i]
+    const p1 = pts[i]
+    const p2 = pts[i + 1]
+    const p3 = pts[i + 2] ?? p2
+    const c1x = p1[0] + (p2[0] - p0[0]) / 6
+    const c1y = p1[1] + (p2[1] - p0[1]) / 6
+    const c2x = p2[0] - (p3[0] - p1[0]) / 6
+    const c2y = p2[1] - (p3[1] - p1[1]) / 6
+    d.push(`C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`)
+  }
+  return d.join(' ')
+}
+
 function LineChart() {
-  const W = 520, H = 260
-  const ml = 44, mr = 16, mt = 20, mb = 44
+  const W = 560, H = 300
+  const ml = 36, mr = 16, mt = 16, mb = 34
   const cW = W - ml - mr
   const cH = H - mt - mb
   const n = MONTHS.length
   const xs = (i: number) => ml + (i / (n - 1)) * cW
   const ys = (v: number) => mt + cH - (v / 100) * cH
+  const axis = '#005668'
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%"
-      style={{ display: "block", fontFamily: "'Gellix', sans-serif" }}>
-      {[25, 50, 75, 100].map(pct => {
-        const y = ys(pct)
-        return (
-          <g key={pct}>
-            <line x1={ml} y1={y} x2={W - mr} y2={y}
-              stroke="#E5E5E5" strokeWidth="1" strokeDasharray="4,4" />
-            <text x={ml - 6} y={y + 4} textAnchor="end" fontSize="10"
-              fill="#111">{pct}</text>
-          </g>
-        )
-      })}
-      <line x1={ml} y1={mt + cH} x2={W - mr} y2={mt + cH} stroke="#E5E5E5" strokeWidth="1" />
-      {MONTHS.map((m, i) => (
-        <text key={m} x={xs(i)} y={mt + cH + 16} textAnchor="middle" fontSize="11"
-          fill="#111">{m}</text>
-      ))}
-      {LINE_DATA.map(series => {
-        const pts = series.values.map((v, i) => `${xs(i).toFixed(1)},${ys(v).toFixed(1)}`).join(' ')
-        return (
-          <g key={series.label}>
-            <polyline points={pts} fill="none" stroke={series.color} strokeWidth="2.5"
-              strokeLinejoin="round" strokeLinecap="round" />
-            {series.values.map((v, i) => (
-              <circle key={i} cx={xs(i)} cy={ys(v)} r="4.5" fill={series.color} />
-            ))}
-          </g>
-        )
-      })}
-      {LINE_DATA.map((s, i) => (
-        <g key={s.label} transform={`translate(${ml + i * 110}, ${H - 12})`}>
-          <rect x="0" y="-5" width="16" height="3" rx="1.5" fill={s.color} />
-          <text x="22" y="0" fontSize="11" fill="#111">{s.label}</text>
-        </g>
-      ))}
-    </svg>
+    <div>
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%"
+        style={{ display: "block", fontFamily: "'Gellix', sans-serif" }}>
+        <defs>
+          {LINE_DATA.map((s, i) => (
+            <linearGradient key={i} id={`lc-grad-${i}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={s.color} stopOpacity="0.20" />
+              <stop offset="100%" stopColor={s.color} stopOpacity="0" />
+            </linearGradient>
+          ))}
+        </defs>
+
+        {[0, 25, 50, 75, 100].map(pct => {
+          const y = ys(pct)
+          return (
+            <g key={pct}>
+              <line x1={ml} y1={y} x2={W - mr} y2={y} stroke="#ECECEC" strokeWidth="1"
+                strokeDasharray={pct === 0 ? undefined : "3,5"} />
+              <text x={ml - 8} y={y + 3} textAnchor="end" fontSize="9.5" fill={axis} opacity="0.6">{pct}</text>
+            </g>
+          )
+        })}
+        {MONTHS.map((m, i) => (
+          <text key={m} x={xs(i)} y={mt + cH + 18} textAnchor="middle" fontSize="10" fill={axis} opacity="0.6">{m}</text>
+        ))}
+
+        {/* Area fills (drawn back-to-front) */}
+        {LINE_DATA.map((s, i) => {
+          const pts = s.values.map((v, j) => [xs(j), ys(v)] as [number, number])
+          const area = `${smoothPath(pts)} L ${xs(n - 1).toFixed(1)} ${ys(0).toFixed(1)} L ${xs(0).toFixed(1)} ${ys(0).toFixed(1)} Z`
+          return <path key={i} d={area} fill={`url(#lc-grad-${i})`} />
+        })}
+
+        {/* Smooth lines + data points */}
+        {LINE_DATA.map((s, i) => {
+          const pts = s.values.map((v, j) => [xs(j), ys(v)] as [number, number])
+          return (
+            <g key={i}>
+              <path d={smoothPath(pts)} fill="none" stroke={s.color} strokeWidth="2.5"
+                strokeLinecap="round" strokeLinejoin="round" />
+              {pts.map(([x, y], j) => (
+                <circle key={j} cx={x} cy={y} r="3" fill={s.color} stroke="#fff" strokeWidth="1.5" />
+              ))}
+            </g>
+          )
+        })}
+      </svg>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 24px", marginTop: 16 }}>
+        {LINE_DATA.map(s => (
+          <div key={s.label} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span style={{ width: 10, height: 10, borderRadius: "50%", background: s.color, flexShrink: 0 }} />
+            <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: "#005668" }}>{s.label}</span>
+            <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, fontWeight: 700, color: s.color }}>
+              {s.values[s.values.length - 1]}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
 // ── Donut chart ──────────────────────────────────────────────────
 const DONUT_DATA_LIGHT = [
-  { label: 'Product',  pct: 0.35, color: t['primary-blue'] },
-  { label: 'Services', pct: 0.22, color: t['orange'] },
-  { label: 'Support',  pct: 0.18, color: t['dark-blue'] },
-  { label: 'Growth',   pct: 0.13, color: t['lime-dark'] },
-  { label: 'Other',    pct: 0.12, color: t['purple'] },
+  { label: 'Product',  pct: 0.35, color: '#005668' },   // Dark Teal
+  { label: 'Services', pct: 0.22, color: '#F65F28' },   // Flare
+  { label: 'Support',  pct: 0.18, color: '#0090A4' },   // Light Teal
+  { label: 'Growth',   pct: 0.13, color: '#48A1FD' },   // Azure
+  { label: 'Other',    pct: 0.12, color: '#6F8B22' },   // Deep Lime
 ]
 
-// Dark variant: swap dark-blue → purple, lime-dark → pale-green, purple → white
+// Dark variant: the bright secondaries read forward on the deep teal ground
 const DONUT_DATA_DARK = [
-  { label: 'Product',  pct: 0.35, color: t['primary-blue'] },
-  { label: 'Services', pct: 0.22, color: t['orange'] },
-  { label: 'Support',  pct: 0.18, color: t['purple'] },
-  { label: 'Growth',   pct: 0.13, color: t['pale-green'] },
-  { label: 'Other',    pct: 0.12, color: t['white'] },
+  { label: 'Product',  pct: 0.35, color: '#55EFC7' },   // Aurora
+  { label: 'Services', pct: 0.22, color: '#F65F28' },   // Flare
+  { label: 'Support',  pct: 0.18, color: '#48A1FD' },   // Azure
+  { label: 'Growth',   pct: 0.13, color: '#BAEB65' },   // Lime
+  { label: 'Other',    pct: 0.12, color: '#C6E5DD' },   // Mist
 ]
 
 interface DonutDatum { label: string; pct: number; color: string }
@@ -254,8 +298,8 @@ export default function DataVizCharts() {
             </div>
             <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: '#005668',
               marginTop: 8, lineHeight: 1.5 }}>
-              Q5 uses Lime 800 <span style={{ fontFamily: "monospace", background: "#F3F3F3",
-                padding: "1px 5px", borderRadius: 2 }}>#5C705C</span>: 5.5:1 contrast, WCAG AA
+              On white, use the darker secondaries (Dark Teal, Flare, Light Teal, Azure, Deep Lime),
+              each a distinct hue that holds up against the page.
             </div>
           </div>
           <div>
@@ -268,8 +312,8 @@ export default function DataVizCharts() {
             </div>
             <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: '#005668',
               marginTop: 8, lineHeight: 1.5 }}>
-              Q5 uses Lime 500 <span style={{ fontFamily: "monospace", background: "#F3F3F3",
-                padding: "1px 5px", borderRadius: 2 }}>#CCFFCC</span>: works on dark backgrounds
+              On dark, the bright secondaries (Aurora, Lime, Azure, Mist) come forward and stay
+              legible against the deep teal ground.
             </div>
           </div>
         </div>
@@ -317,7 +361,7 @@ export default function DataVizCharts() {
         </div>
         <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 11, color: '#005668',
           marginTop: 8, lineHeight: 1.5 }}>
-          Dark variant: Deep Violet swapped for Bright Purple; Growth uses Pale Green; fifth slot uses White for maximum contrast
+          On light, segments use the darker secondaries; on dark they switch to the brights (Aurora, Lime, Mist) so each slice stays distinct against the deep teal.
         </div>
       </div>
 

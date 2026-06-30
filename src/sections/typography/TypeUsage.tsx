@@ -16,7 +16,7 @@ const rows = [
     specs: `48 – 96 px · ${displayEntry.ls} tracking · 90% leading · Sentence case`,
     ex: (
       <div style={{ fontFamily: `'${displayEntry.family}', sans-serif`, fontWeight: displayEntry.weight, fontSize: 'clamp(32px, 5vw, 72px)', lineHeight: 0.9, letterSpacing: displayEntry.ls, color: 'var(--charcoal)' }}>
-        Prominent headline<br/>to describe a message.
+        Fearless results for brands<br/>that dare to stand out.
       </div>
     ),
   },
@@ -26,7 +26,7 @@ const rows = [
     specs: `21 – 42 px · ${sectionEntry.ls} tracking · 100% leading · Sentence case`,
     ex: (
       <div style={{ fontFamily: `'${sectionEntry.family}', sans-serif`, fontWeight: sectionEntry.weight, fontSize: 'clamp(20px, 3.5vw, 40px)', lineHeight: 1, letterSpacing: sectionEntry.ls, color: 'var(--charcoal)' }}>
-        Concise subtitle to offer<br/>additional insight.
+        We shape conversations<br/>and move policy.
       </div>
     ),
   },
@@ -36,7 +36,7 @@ const rows = [
     specs: `24 – 32 px · 0 tracking · 110% leading · Sentence case`,
     ex: (
       <div style={{ fontFamily: `'${editorialEntry.family}', serif`, fontWeight: editorialEntry.weight, fontSize: 'clamp(22px, 3.2vw, 32px)', lineHeight: 1.1, letterSpacing: editorialEntry.ls, color: 'var(--charcoal)' }}>
-        Attribution &amp; reporting<br/>that proves the results.
+        Unique depth and bold impact,<br/>at the intersection of data.
       </div>
     ),
   },

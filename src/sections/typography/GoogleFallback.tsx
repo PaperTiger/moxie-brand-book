@@ -11,7 +11,7 @@ const rows = [
     specs: '24–72 px · −1% tracking · 100% leading · Sentence case',
     ex: (
       <div style={{ fontFamily: `'${gf}', sans-serif`, fontWeight: 700, fontSize: 'clamp(28px,4vw,56px)', lineHeight: 0.95, letterSpacing: '-0.01em', color: 'var(--charcoal)' }}>
-        Design that works<br />as hard as the brand.
+        Bold impact that works<br />as hard as you do.
       </div>
     ),
   },
@@ -21,7 +21,7 @@ const rows = [
     specs: '18–28 px · −1% tracking · 100% leading · Sentence case',
     ex: (
       <div style={{ fontFamily: `'${gf}', sans-serif`, fontWeight: 600, fontSize: 'clamp(18px,2.5vw,28px)', lineHeight: 1, letterSpacing: '-0.01em', color: 'var(--charcoal)' }}>
-        Concise subtitle for additional context
+        We turn vision into action
       </div>
     ),
   },

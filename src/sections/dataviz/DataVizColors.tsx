@@ -4,43 +4,43 @@ const t = brand.tokens
 
 const sequence = [
   {
-    n: '01', name: 'Electric Violet', hex: t['primary-blue'], text: '#fff',
-    note: 'Primary series: anchors every chart to the brand identity. Always use first.',
+    n: '01', name: 'Dark Teal', hex: '#005668', text: '#E2FEF7',
+    note: 'Primary series: anchors every chart to the brand. Always use first.',
   },
   {
-    n: '02', name: 'Coral', hex: t['orange'], text: '#fff',
-    note: 'Second series: contrast-safe alongside Electric Violet on both light and dark.',
+    n: '02', name: 'Flare', hex: '#F65F28', text: '#E2FEF7',
+    note: 'Second series: warm contrast, clearly distinct from Dark Teal on light and dark.',
   },
   {
-    n: '03', name: 'Deep Violet', hex: t['dark-blue'], text: '#fff',
-    note: 'Third series: use for charts requiring three or more distinct data series.',
+    n: '03', name: 'Light Teal', hex: '#0090A4', text: '#E2FEF7',
+    note: 'Third series: for charts that need three or more distinct data series.',
   },
   {
-    n: '04', name: 'Bright Purple', hex: t['purple'], text: '#fff',
-    note: 'Fourth series: limit charts to four color-coded series maximum.',
+    n: '04', name: 'Lime', hex: '#BAEB65', text: '#005668',
+    note: 'Fourth series: a bright highlight. Best on dark grounds or to draw emphasis.',
   },
   {
-    n: '05', name: 'Lime', hex: t['pale-green'], text: '#000',
-    note: 'Use only on dark backgrounds. Insufficient contrast on white chart areas.',
+    n: '05', name: 'Aurora', hex: '#55EFC7', text: '#005668',
+    note: 'Fifth series: cool mint for supporting data. Always pair with dark labels.',
   },
   {
-    n: '06', name: 'Mid Gray', hex: '#9CA3AF', text: '#fff',
-    note: 'Axes, gridlines, and reference lines only. Never use as a primary data series.',
+    n: '06', name: 'Azure', hex: '#48A1FD', text: '#E2FEF7',
+    note: 'Sixth series: use sparingly; verify contrast on white chart areas.',
   },
 ]
 
 const rules = [
   {
-    heading: 'Start with Electric Violet',
+    heading: 'Start with Dark Teal',
     body: 'The primary brand color always takes the first data series, anchoring the chart and drawing the eye to the most important metric.',
   },
   {
-    heading: 'Maximum four series',
-    body: 'Limit each chart to four color-coded data series. For five or more, use opacity steps of a single hue (see sequential palette below).',
+    heading: 'Build out with the secondary palette',
+    body: 'Add Flare, Light Teal, Lime, Aurora, and Azure in sequence for additional series. For five or more, prefer opacity steps of a single hue (see sequential palette below).',
   },
   {
-    heading: 'Gray is for context, not data',
-    body: 'Gray tones serve axes, gridlines, and benchmark reference lines only. Never represent a primary data series in gray.',
+    heading: 'Neutrals are for context, not data',
+    body: 'Shadow and Dusk serve axes, gridlines, and benchmark reference lines only. Never represent a primary data series in a neutral.',
   },
   {
     heading: 'Test for color accessibility',
@@ -127,7 +127,7 @@ export default function DataVizColors() {
         </div>
         <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 12, color: '#005668',
           marginTop: 4 }}>
-          100% → 80% → 60% → 40% → 20% → 10% opacity of Electric Violet
+          100% → 80% → 60% → 40% → 20% → 10% opacity of Dark Teal
         </div>
       </div>
     </div>

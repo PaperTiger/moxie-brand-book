@@ -1,5 +1,8 @@
 import brand from '../../brand.config'
 
+const base = import.meta.env.BASE_URL
+const heroPhoto = brand.images.photography[8] ?? brand.images.photography[0]
+
 export default function PhotoIntro() {
   const client = brand.meta.client
   return (
@@ -19,13 +22,10 @@ export default function PhotoIntro() {
             real environments, and clean product shots over staged stock. Photography builds
             trust by showing how the work actually gets done.
           </p>
-          <div className="placeholder-badge" style={{ marginTop: 20 }}>
-            <strong>Placeholder imagery.</strong> Replace with real {client} photography before publishing.
-          </div>
         </div>
       </div>
       <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <img src="https://picsum.photos/seed/photo-hero/800/1100" alt=""
+        <img src={`${base}images/photography/${heroPhoto}`} alt=""
           style={{ position: 'absolute', bottom: 0, right: 0, width: '88%', height: '90%', objectFit: 'cover' }} />
       </div>
     </div>

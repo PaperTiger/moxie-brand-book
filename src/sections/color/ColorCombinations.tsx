@@ -1,4 +1,5 @@
 import brand from '../../brand.config'
+import { FullLogoSvg } from '../../components/ui/LogoSvg'
 
 function hexToRgb(hex: string): [number, number, number] {
   const h = hex.replace('#', '')
@@ -29,8 +30,6 @@ function colorByName(name: string) {
   return allColors.find(c => c.name.toLowerCase() === name.toLowerCase())
 }
 
-const base = import.meta.env.BASE_URL
-
 export default function ColorCombinations() {
   return (
     <>
@@ -38,55 +37,66 @@ export default function ColorCombinations() {
         <div className="section-label">Color</div>
         <h2 className="section-title">Combinations & accessibility</h2>
         <p className="section-intro" style={{ marginBottom: 0 }}>
-          Approved color pairings with live WCAG contrast ratios.
-          AA requires 4.5:1 for body text, AAA requires 7:1.
+          The approved background and text pairings, each with its live WCAG contrast ratio.
+          AA requires 4.5:1 for body text, AAA requires 7:1. Pairings marked <strong>FAIL</strong>
+          do not meet AA for body copy: reserve them for large display text, logos, or graphic
+          accents, never small text.
         </p>
       </div>
 
       <div className="combos-grid">
         {brand.colorPairings.map(p => {
           const bgToken = colorByName(p.bg)
-          if (!bgToken) return null
+          const textToken = colorByName(p.text)
+          if (!bgToken || !textToken) return null
           const bgHex = bgToken.hex
-          const fgHex = luminance(bgHex) > 0.179 ? '#000000' : '#FFFFFF'
+          const fgHex = textToken.hex
           const ratio = contrast(bgHex, fgHex)
           const aa  = ratio >= 4.5
           const aaa = ratio >= 7
           const level = aaa ? 'AAA' : aa ? 'AA' : 'FAIL'
+          const fail = level === 'FAIL'
           const outline = luminance(bgHex) > 0.7
 
           return (
-            <div key={p.bg} style={{
+            <div key={`${p.bg}-${p.text}`} style={{
               background: bgHex,
               padding: 'clamp(20px, 2.5vw, 40px)',
               display: 'flex', flexDirection: 'column',
-              minHeight: 'clamp(180px, 20vw, 280px)',
+              minHeight: 'clamp(200px, 22vw, 300px)',
               ...(outline ? { boxShadow: 'inset 0 0 0 1px #C8C8C8' } : {}),
             }}>
-              <div style={{ flex: 1, paddingBottom: 'clamp(16px, 2vw, 28px)' }}>
-                <img
-                  src={`${base}images/logos/${p.logo}`}
-                  alt={brand.meta.client}
-                  style={{ width: '100%', maxWidth: 'clamp(90px, 10vw, 150px)', height: 'auto', display: 'block' }}
-                />
-              </div>
+              {/* Logo rendered in the pairing's text colour so it always matches the type */}
+              <FullLogoSvg markFill={fgHex} style={{ width: '100%', maxWidth: 'clamp(80px, 9vw, 130px)', height: 'auto', display: 'block' }} />
+
+              <div style={{ flex: 1 }} />
+
+              {/* Small text-on-background sample, sitting just above the label */}
+              <span style={{
+                fontFamily: "'Gellix', sans-serif", fontWeight: 700,
+                fontSize: 'clamp(16px, 1.8vw, 24px)', lineHeight: 1, color: fgHex, marginBottom: 10,
+              }}>Aa</span>
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
                 <span style={{
-                  fontFamily: 'Gellix, sans-serif', fontSize: 10, fontWeight: 500,
+                  fontFamily: 'Gellix, sans-serif', fontSize: 11, fontWeight: 500,
                   color: fgHex, letterSpacing: '0.02em',
                 }}>
-                  {p.bg}
+                  {p.bg} / {p.text}
                 </span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
                   <span style={{
                     fontFamily: 'Gellix, sans-serif', fontSize: 9, fontWeight: 700,
                     letterSpacing: '0.04em',
-                    color: bgHex, background: fgHex,
+                    color: fail ? '#FFFFFF' : bgHex, background: fail ? '#D8392B' : fgHex,
                     padding: '3px 7px', borderRadius: 2,
                     display: 'flex', alignItems: 'center', gap: 3,
                   }}>
-                    {level !== 'FAIL' && (
+                    {fail ? (
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M2 2l4 4M6 2L2 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+                      </svg>
+                    ) : (
                       <svg width="8" height="8" viewBox="0 0 8 8" fill="none" style={{ flexShrink: 0 }}>
                         <path d="M1.5 4L3.2 5.8L6.5 2.2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
