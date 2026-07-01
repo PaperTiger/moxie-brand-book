@@ -1,28 +1,14 @@
 import brand from '../../brand.config'
 import { LogoMarkSvg } from '../../components/ui/LogoSvg'
 import ClearspaceDiagram from '../../components/ui/ClearspaceDiagram'
+import { resolveColorPairings } from '../../utils'
 
-const t = brand.tokens
 const base = import.meta.env.BASE_URL
 const GRADIENT_MARK = `${base}images/logos/moxie-logo-mark-gradient.svg`
 
-const DARK = t['dark-blue']
-const LIGHT = '#E2FEF7'
-
-// The gradient mark is the lead version on neutral / light backgrounds.
-// Solid marks are used where the gradient would lose contrast (bright or dark backgrounds).
-const combos: { bg: string; label: string; lbl: string; mark?: string; gradient?: boolean }[] = [
-  { bg: '#FFFFFF',         gradient: true, label: 'White',      lbl: '#005668' },
-  { bg: '#E2FEF7',         gradient: true, label: 'Veil',       lbl: '#005668' },
-  { bg: '#C6E5DD',         gradient: true, label: 'Mist',       lbl: '#005668' },
-  { bg: t['green'],        mark: DARK,     label: 'Lime',       lbl: '#005668' },
-  { bg: t['fuscia'],       mark: DARK,     label: 'Aurora',     lbl: '#005668' },
-  { bg: t['primary-blue'], mark: LIGHT,    label: 'Dark teal',  lbl: '#fff' },
-  { bg: '#0090A4',         mark: LIGHT,    label: 'Light teal', lbl: '#fff' },
-  { bg: t['orange'],       mark: LIGHT,    label: 'Flare',      lbl: '#fff' },
-  { bg: t['purple'],       mark: LIGHT,    label: 'Azure',      lbl: '#fff' },
-  { bg: '#36363B',     mark: LIGHT,    label: 'Dusk',       lbl: '#fff' },
-]
+// Approved pairings, sourced from brand.colorPairings (matches Figma exactly).
+// The gradient mark leads on neutral / light backgrounds; solid marks elsewhere.
+const combos = resolveColorPairings()
 
 export default function LogoMark() {
   return (
@@ -64,11 +50,11 @@ export default function LogoMark() {
           <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 16px', color: '#005668' }}>Approved color combinations</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 0 }}>
             {combos.map(c => (
-              <div key={c.label} style={{ background: c.bg, padding: '32px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, justifyContent: 'center', aspectRatio: '1' }}>
+              <div key={c.bg} style={{ background: c.bgHex, padding: '32px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, justifyContent: 'center', aspectRatio: '1' }}>
                 {c.gradient
                   ? <img src={GRADIENT_MARK} alt={`${brand.meta.client} mark`} style={{ maxHeight: 80, width: 'auto', display: 'block' }} />
-                  : <LogoMarkSvg markFill={c.mark} style={{ maxHeight: 80, width: 'auto' }} />}
-                <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', color: c.lbl, textTransform: 'uppercase', opacity: 0.7 }}>{c.label}</span>
+                  : <LogoMarkSvg markFill={c.textHex} style={{ maxHeight: 80, width: 'auto' }} />}
+                <span style={{ fontFamily: "'Gellix', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', color: c.textHex, textTransform: 'uppercase', opacity: 0.7 }}>{c.bg}</span>
               </div>
             ))}
           </div>

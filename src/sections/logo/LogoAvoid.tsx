@@ -36,8 +36,8 @@ const items = [
     heading: "Don't use low contrast",
     body: "Don't place the dark logo on dark or busy backgrounds. Use the white version instead.",
     bg: t['dark-blue'],
-    svgStyle: { opacity: 0.25 },
-    mark: t['dark-blue'],
+    svgStyle: {},
+    mark: t['primary-blue'],
   },
   {
     heading: "Don't rebuild the wordmark",

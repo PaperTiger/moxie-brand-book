@@ -1,5 +1,5 @@
-import brand from '../../brand.config'
 import { FullLogoSvg } from '../../components/ui/LogoSvg'
+import { resolveColorPairings } from '../../utils'
 
 function hexToRgb(hex: string): [number, number, number] {
   const h = hex.replace('#', '')
@@ -24,11 +24,7 @@ function contrast(hex1: string, hex2: string) {
   return Math.round(((lighter + 0.05) / (darker + 0.05)) * 10) / 10
 }
 
-const allColors = [...brand.colors.primary, ...brand.colors.secondary, ...brand.colors.tertiary]
-
-function colorByName(name: string) {
-  return allColors.find(c => c.name.toLowerCase() === name.toLowerCase())
-}
+const pairings = resolveColorPairings()
 
 export default function ColorCombinations() {
   return (
@@ -45,12 +41,9 @@ export default function ColorCombinations() {
       </div>
 
       <div className="combos-grid">
-        {brand.colorPairings.map(p => {
-          const bgToken = colorByName(p.bg)
-          const textToken = colorByName(p.text)
-          if (!bgToken || !textToken) return null
-          const bgHex = bgToken.hex
-          const fgHex = textToken.hex
+        {pairings.map(p => {
+          const bgHex = p.bgHex
+          const fgHex = p.textHex
           const ratio = contrast(bgHex, fgHex)
           const aa  = ratio >= 4.5
           const aaa = ratio >= 7
