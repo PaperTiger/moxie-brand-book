@@ -1,6 +1,7 @@
 import brand from '../../brand.config'
 import { LogoMarkSvg } from '../../components/ui/LogoSvg'
 import ClearspaceDiagram from '../../components/ui/ClearspaceDiagram'
+import DownloadLogosButton from '../../components/ui/DownloadLogosButton'
 import { resolveColorPairings } from '../../utils'
 
 const base = import.meta.env.BASE_URL
@@ -26,9 +27,7 @@ export default function LogoMark() {
           established or space is too tight for the full logo: favicons, app icons, social avatars,
           loading states, and graphic accents on covers and dividers.
         </p>
-        <a href="/downloads/brand-logos.zip" download className="dl-btn" style={{ marginTop: 0, marginBottom: 48 }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download logos
-        </a>
+        <DownloadLogosButton />
 
         {/* Clearspace */}
         <div className="content-block">
