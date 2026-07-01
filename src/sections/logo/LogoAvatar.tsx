@@ -37,7 +37,18 @@ export default function LogoAvatar() {
         where space is too small for any wordmark.
       </p>
 
-      <DownloadLogosButton />
+      <DownloadLogosButton
+        label="Download assets"
+        zipSuffix="avatar-favicon-assets"
+        files={[
+          'moxie-logo-full-dark.svg',
+          'moxie-logo-full-light.svg',
+          'moxie-logo-full-dark-gradient.svg',
+          'moxie-logo-mark-dark.svg',
+          'moxie-logo-mark-light.svg',
+          'moxie-logo-mark-gradient.svg',
+        ]}
+      />
 
       <div style={{ borderTop: "1px solid #E5E5E5", paddingTop: 48, marginBottom: 56 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, marginBottom: 24 }}>
