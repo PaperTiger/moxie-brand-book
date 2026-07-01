@@ -10,7 +10,7 @@ export default function PhotoIntro() {
       <div style={{ display: 'flex', flexDirection: 'column', padding: 32, boxSizing: 'border-box' }}>
         <div className="section-label">Photography</div>
         <p style={{ fontFamily: 'Gellix, sans-serif', fontWeight: 700,
-          fontSize: 'clamp(24px,3.2vw,48px)', lineHeight: 0.9, letterSpacing: '-0.02em',
+          fontSize: 'clamp(24px,3.2vw,48px)', lineHeight: 1.0, letterSpacing: '-0.02em',
           color: 'var(--charcoal)', maxWidth: 720, margin: '16px 0 0' }}>
           Photography that earns its place.
         </p>

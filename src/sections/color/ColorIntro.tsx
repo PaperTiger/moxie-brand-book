@@ -8,7 +8,7 @@ export default function ColorIntro() {
       <div style={{ display: 'flex', flexDirection: 'column', padding: 32, boxSizing: 'border-box' }}>
         <div className="section-label">Color</div>
         <p style={{
-          fontFamily: 'Gellix, sans-serif', fontWeight: 300,
+          fontFamily: 'Gellix, sans-serif', fontWeight: 700,
           fontSize: 'clamp(24px,3.2vw,48px)', lineHeight: 1.0, letterSpacing: '-0.02em',
           color: 'var(--charcoal)', maxWidth: 720, margin: '16px 0 0',
         }}>

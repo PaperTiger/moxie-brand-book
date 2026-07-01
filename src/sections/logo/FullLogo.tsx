@@ -32,7 +32,7 @@ export default function FullLogo() {
         {/* Clearspace */}
         <div className="content-block">
           <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 12px', color: '#005668' }}>Clearspace</h3>
-          <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#555', lineHeight: 1.4, marginBottom: 24, maxWidth: 520 }}>
+          <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668', lineHeight: 1.4, marginBottom: 24, maxWidth: 520 }}>
             Maintain a minimum clearspace of <strong>x</strong> on all sides, where x equals half the height of the {brand.meta.client} mark.
           </p>
           <ClearspaceDiagram

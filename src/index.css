@@ -484,7 +484,7 @@ body.print-active .print-book-page { overflow: hidden; }
   font-family: var(--display-font, 'Gellix'), sans-serif;
   font-weight: 700;
   font-size: clamp(24px, 3.2vw, 48px);
-  line-height: 0.9;
+  line-height: 1.0;
   letter-spacing: -0.02em;
   color: var(--charcoal, #111);
   max-width: 960px;
