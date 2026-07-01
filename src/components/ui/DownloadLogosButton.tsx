@@ -6,12 +6,18 @@ export const ALL_LOGO_FILES = [
   'moxie-logo-full-dark.svg',
   'moxie-logo-full-light.svg',
   'moxie-logo-full-dark-gradient.svg',
+  'moxie-logo-full-black.svg',
+  'moxie-logo-full-white.svg',
   'moxie-logo-stacked-dark.svg',
   'moxie-logo-stacked-light.svg',
   'moxie-logo-stacked-dark-gradient.svg',
+  'moxie-logo-stacked-black.svg',
+  'moxie-logo-stacked-white.svg',
   'moxie-logo-mark-dark.svg',
   'moxie-logo-mark-light.svg',
   'moxie-logo-mark-gradient.svg',
+  'moxie-logo-mark-black.svg',
+  'moxie-logo-mark-white.svg',
 ]
 
 async function downloadZip(files: string[], zipName: string) {
