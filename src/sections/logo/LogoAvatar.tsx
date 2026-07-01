@@ -1,6 +1,6 @@
 import brand from '../../brand.config'
 import { FullLogoSvg, LogoMarkSvg } from '../../components/ui/LogoSvg'
-import DownloadLogosButton from '../../components/ui/DownloadLogosButton'
+import DownloadAvatarAssetsButton from '../../components/ui/DownloadAvatarAssetsButton'
 
 const t = brand.tokens
 const base = import.meta.env.BASE_URL
@@ -37,18 +37,7 @@ export default function LogoAvatar() {
         where space is too small for any wordmark.
       </p>
 
-      <DownloadLogosButton
-        label="Download assets"
-        zipSuffix="avatar-favicon-assets"
-        files={[
-          'moxie-logo-full-dark.svg',
-          'moxie-logo-full-light.svg',
-          'moxie-logo-full-dark-gradient.svg',
-          'moxie-logo-mark-dark.svg',
-          'moxie-logo-mark-light.svg',
-          'moxie-logo-mark-gradient.svg',
-        ]}
-      />
+      <DownloadAvatarAssetsButton avatars={avatarBgs} gradientSrc={GRADIENT_FULL} />
 
       <div style={{ borderTop: "1px solid #E5E5E5", paddingTop: 48, marginBottom: 56 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, marginBottom: 24 }}>
