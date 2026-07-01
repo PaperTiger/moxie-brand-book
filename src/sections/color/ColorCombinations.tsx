@@ -49,7 +49,6 @@ export default function ColorCombinations() {
           const aaa = ratio >= 7
           const level = aaa ? 'AAA' : aa ? 'AA' : 'FAIL'
           const fail = level === 'FAIL'
-          const outline = luminance(bgHex) > 0.7
 
           return (
             <div key={`${p.bg}-${p.text}`} style={{
@@ -57,7 +56,6 @@ export default function ColorCombinations() {
               padding: 'clamp(20px, 2.5vw, 40px)',
               display: 'flex', flexDirection: 'column',
               minHeight: 'clamp(200px, 22vw, 300px)',
-              ...(outline ? { boxShadow: 'inset 0 0 0 1px #C8C8C8' } : {}),
             }}>
               {/* Logo rendered in the pairing's text colour so it always matches the type */}
               <FullLogoSvg markFill={fgHex} style={{ width: '100%', maxWidth: 'clamp(80px, 9vw, 130px)', height: 'auto', display: 'block' }} />
