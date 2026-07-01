@@ -1,6 +1,9 @@
 import { FullLogoSvg } from '../../components/ui/LogoSvg'
 import { resolveColorPairings } from '../../utils'
 
+const base = import.meta.env.BASE_URL
+const GRADIENT_FULL = `${base}images/logos/moxie-logo-full-dark-gradient.svg`
+
 function hexToRgb(hex: string): [number, number, number] {
   const h = hex.replace('#', '')
   return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]
@@ -57,8 +60,11 @@ export default function ColorCombinations() {
               display: 'flex', flexDirection: 'column',
               minHeight: 'clamp(200px, 22vw, 300px)',
             }}>
-              {/* Logo rendered in the pairing's text colour so it always matches the type */}
-              <FullLogoSvg markFill={fgHex} style={{ width: '100%', maxWidth: 'clamp(80px, 9vw, 130px)', height: 'auto', display: 'block' }} />
+              {/* Mist and Veil always use the full-color gradient logo; other pairings use the
+                  solid logo tinted to the pairing's text colour so it matches the type. */}
+              {p.gradient
+                ? <img src={GRADIENT_FULL} alt="Moxie logo" style={{ width: '100%', maxWidth: 'clamp(80px, 9vw, 130px)', height: 'auto', display: 'block' }} />
+                : <FullLogoSvg markFill={fgHex} style={{ width: '100%', maxWidth: 'clamp(80px, 9vw, 130px)', height: 'auto', display: 'block' }} />}
 
               <div style={{ flex: 1 }} />
 
