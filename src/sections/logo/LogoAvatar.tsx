@@ -2,19 +2,25 @@ import brand from '../../brand.config'
 import { FullLogoSvg, LogoMarkSvg } from '../../components/ui/LogoSvg'
 
 const t = brand.tokens
+const base = import.meta.env.BASE_URL
+const GRADIENT_FULL = `${base}images/logos/moxie-logo-full-dark-gradient.svg`
+const GRADIENT_MARK = `${base}images/logos/moxie-logo-mark-gradient.svg`
+
 const VEIL = '#E2FEF7'
 const DARK_TEAL = t['primary-blue']
 
-const avatarBgs = [
-  { bg: '#FFFFFF',         mark: DARK_TEAL, label: 'White',      outline: true },
-  { bg: DARK_TEAL,         mark: VEIL,      label: 'Dark teal' },
-  { bg: '#0090A4',         mark: VEIL,      label: 'Light teal' },
-  { bg: t['dark-blue'],    mark: VEIL,      label: 'Logo dark' },
-  { bg: '#36363B',         mark: VEIL,      label: 'Dusk' },
-  { bg: t['orange'],       mark: VEIL,      label: 'Flare' },
-  { bg: t['green'],        mark: DARK_TEAL, label: 'Lime' },
-  { bg: t['fuscia'],       mark: DARK_TEAL, label: 'Aurora' },
-  { bg: t['purple'],       mark: VEIL,      label: 'Azure' },
+// White, Mist, and Veil lead with the gradient logo; solid marks elsewhere for contrast.
+const avatarBgs: { bg: string; label: string; mark?: string; gradient?: boolean; outline?: boolean }[] = [
+  { bg: '#FFFFFF',         label: 'White',      gradient: true, outline: true },
+  { bg: '#C6E5DD',         label: 'Mist',       gradient: true },
+  { bg: VEIL,               label: 'Veil',       gradient: true },
+  { bg: DARK_TEAL,         label: 'Dark teal',  mark: VEIL },
+  { bg: '#0090A4',         label: 'Light teal', mark: VEIL },
+  { bg: t['dark-blue'],    label: 'Logo dark',  mark: VEIL },
+  { bg: t['orange'],       label: 'Flare',      mark: VEIL },
+  { bg: t['green'],        label: 'Lime',       mark: DARK_TEAL },
+  { bg: t['fuscia'],       label: 'Aurora',     mark: DARK_TEAL },
+  { bg: t['purple'],       label: 'Azure',      mark: VEIL },
 ]
 
 const faviconSizes = [64, 48, 32, 16]
@@ -42,7 +48,9 @@ export default function LogoAvatar() {
           {avatarBgs.map(a => (
             <div key={a.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
               <div style={{ width: "100%", aspectRatio: "1", borderRadius: "50%", background: a.bg, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", ...(a.outline ? { boxShadow: 'inset 0 0 0 1px #DADADA' } : {}) }}>
-                <FullLogoSvg markFill={a.mark} style={{ width: "60%", height: "auto" }} />
+                {a.gradient
+                  ? <img src={GRADIENT_FULL} alt={`${brand.meta.client} logo`} style={{ width: "70%", height: "auto", display: "block" }} />
+                  : <FullLogoSvg markFill={a.mark} style={{ width: "70%", height: "auto" }} />}
               </div>
               <div style={{ fontSize: 11, color: '#005668', letterSpacing: "0.04em", fontFamily: "Gellix, sans-serif" }}>{a.label}</div>
             </div>
@@ -74,7 +82,7 @@ export default function LogoAvatar() {
               {faviconSizes.map(size => (
                 <div key={size} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
                   <div style={{ width: size, height: size, background: "#000000", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <LogoMarkSvg markFill="#fff" style={{ width: "80%", height: "80%" }} />
+                    <img src={GRADIENT_MARK} alt={`${brand.meta.client} mark`} style={{ width: "80%", height: "80%", display: "block" }} />
                   </div>
                   <div style={{ fontSize: 10, color: '#005668', fontFamily: "Gellix, sans-serif" }}>{size}px</div>
                 </div>
