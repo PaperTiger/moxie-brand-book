@@ -97,9 +97,9 @@ const brand: BrandConfig = {
     { size: '32px', name: 'Headline L',  family: 'Queens Condensed', weight: 400, ls: '0',       lh: 1.1 },
     { size: '24px', name: 'Headline M',  family: 'Queens Condensed', weight: 400, ls: '0',       lh: 1.25 },
     { size: '21px', name: 'Headline S',  family: 'Gellix',          weight: 700, ls: '-0.01em', lh: 1.2 },
-    { size: '18px', name: 'Body XL',     family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.55 },
-    { size: '16px', name: 'Body L',      family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.6 },
-    { size: '14px', name: 'Body M',      family: 'Gellix', weight: 500, ls: '0',         lh: 1.6 },
+    { size: '18px', name: 'Body XL',     family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.4 },
+    { size: '16px', name: 'Body L',      family: 'Gellix', weight: 500, ls: '-0.01em',  lh: 1.4 },
+    { size: '14px', name: 'Body M',      family: 'Gellix', weight: 500, ls: '0',         lh: 1.4 },
     { size: '12px', name: 'Caption',     family: 'Gellix', weight: 500, ls: '0',         lh: 1.5 },
   ],
   meta: {
@@ -138,7 +138,7 @@ const brand: BrandConfig = {
   // Token keys are the theming API consumed across the book (CSS custom properties).
   // Keys are kept stable; values are mapped to the Moxie palette.
   tokens: {
-    'lh-body':          '1.65',
+    'lh-body':          '1.4',
     'primary-blue':     '#005668',   // Dark Teal — primary accent
     'primary-blue-rgb': '0, 86, 104',
     'dark-blue':        '#004553',    // Logo dark — deep teal, hero backgrounds

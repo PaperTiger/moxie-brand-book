@@ -17,7 +17,7 @@ export default function PhotoDos() {
       <div>
         <div className="section-label" style={{ marginBottom: 20 }}>Photography</div>
         <h2 className="section-title" style={{ marginBottom: 24 }}>Dos</h2>
-        <p style={{ fontFamily: "Gellix, sans-serif", fontSize: 14, color: '#005668', lineHeight: 1.65 }}>
+        <p style={{ fontFamily: "Gellix, sans-serif", fontSize: 14, color: '#005668', lineHeight: 1.4 }}>
           These are guiding principles when creating photography assets, a starting point for
           shooting imagery used in print or digital collateral.
         </p>

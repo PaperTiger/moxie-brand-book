@@ -16,7 +16,7 @@ export default function PhotoIntro() {
         </p>
         <div style={{ flex: 1 }} />
         <div style={{ maxWidth: 480 }}>
-          <p style={{ fontFamily: 'Gellix, sans-serif', fontSize: 16, lineHeight: 1.65,
+          <p style={{ fontFamily: 'Gellix, sans-serif', fontSize: 16, lineHeight: 1.4,
             color: 'var(--charcoal)', margin: 0 }}>
             {client} imagery should feel real and human. Favor candid teams at work,
             real environments, and clean product shots over staged stock. Photography builds

@@ -25,7 +25,7 @@ export default function TypeIntro() {
           <div style={{ fontFamily: `'${accent}', sans-serif`, fontSize: 24, fontWeight: 400, color: 'var(--charcoal)' }}>{accent}</div>
         </div>
       </div>
-      <p style={{ fontFamily: `${df}, sans-serif`, fontSize: 15, lineHeight: 1.7, color: 'var(--charcoal)', maxWidth: 560 }}>
+      <p style={{ fontFamily: `${df}, sans-serif`, fontSize: 15, lineHeight: 1.4, color: 'var(--charcoal)', maxWidth: 560 }}>
         Never substitute another typeface without approval. This pairing is chosen for on-screen
         legibility, brand consistency, and technical availability across all platforms.
       </p>

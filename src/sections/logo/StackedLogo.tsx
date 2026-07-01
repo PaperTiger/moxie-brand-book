@@ -32,7 +32,7 @@ export default function StackedLogo() {
         {/* Clearspace */}
         <div className="content-block">
           <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17, margin: '0 0 12px', color: '#005668' }}>Clearspace</h3>
-          <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#555', lineHeight: 1.6, marginBottom: 24, maxWidth: 520 }}>
+          <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#555', lineHeight: 1.4, marginBottom: 24, maxWidth: 520 }}>
             x equals ½ the height of the {brand.meta.client} mark. Maintain this distance on all four sides.
           </p>
           <ClearspaceDiagram

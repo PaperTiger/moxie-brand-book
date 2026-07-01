@@ -1,8 +1,10 @@
 import brand from '../../brand.config'
 
 const sc = brand.typeScale
+const pct = (lh: number) => `${Math.round(lh * 100)}%`
 
-// Each usage role references the type scale entry that defines its face, weight + letter-spacing
+// Each usage role references the type scale entry that defines its face, weight, tracking, and
+// leading — specs text and rendered line-height both derive from it so they can't drift apart.
 const displayEntry   = sc.find(s => s.name === 'Display L')!     // Gellix Bold
 const sectionEntry   = sc.find(s => s.name === 'Headline XL')!   // Gellix Bold
 const editorialEntry = sc.find(s => s.name === 'Headline L')!    // Queens Condensed
@@ -13,9 +15,9 @@ const rows = [
   {
     role: 'Display headline',
     face: displayEntry.family, weight: 'Bold',
-    specs: `48 – 96 px · ${displayEntry.ls} tracking · 90% leading · Sentence case`,
+    specs: `48 – 96 px · ${displayEntry.ls} tracking · ${pct(displayEntry.lh)} leading · Sentence case`,
     ex: (
-      <div style={{ fontFamily: `'${displayEntry.family}', sans-serif`, fontWeight: displayEntry.weight, fontSize: 'clamp(32px, 5vw, 72px)', lineHeight: 0.9, letterSpacing: displayEntry.ls, color: 'var(--charcoal)' }}>
+      <div style={{ fontFamily: `'${displayEntry.family}', sans-serif`, fontWeight: displayEntry.weight, fontSize: 'clamp(32px, 5vw, 72px)', lineHeight: displayEntry.lh, letterSpacing: displayEntry.ls, color: 'var(--charcoal)' }}>
         Fearless results for brands<br/>that dare to stand out.
       </div>
     ),
@@ -23,9 +25,9 @@ const rows = [
   {
     role: 'Section headline',
     face: sectionEntry.family, weight: 'Bold',
-    specs: `21 – 42 px · ${sectionEntry.ls} tracking · 100% leading · Sentence case`,
+    specs: `21 – 42 px · ${sectionEntry.ls} tracking · ${pct(sectionEntry.lh)} leading · Sentence case`,
     ex: (
-      <div style={{ fontFamily: `'${sectionEntry.family}', sans-serif`, fontWeight: sectionEntry.weight, fontSize: 'clamp(20px, 3.5vw, 40px)', lineHeight: 1, letterSpacing: sectionEntry.ls, color: 'var(--charcoal)' }}>
+      <div style={{ fontFamily: `'${sectionEntry.family}', sans-serif`, fontWeight: sectionEntry.weight, fontSize: 'clamp(20px, 3.5vw, 40px)', lineHeight: sectionEntry.lh, letterSpacing: sectionEntry.ls, color: 'var(--charcoal)' }}>
         We shape conversations<br/>and move policy.
       </div>
     ),
@@ -33,9 +35,9 @@ const rows = [
   {
     role: 'Editorial headline',
     face: editorialEntry.family, weight: 'Regular',
-    specs: `24 – 32 px · 0 tracking · 110% leading · Sentence case`,
+    specs: `24 – 32 px · 0 tracking · ${pct(editorialEntry.lh)} leading · Sentence case`,
     ex: (
-      <div style={{ fontFamily: `'${editorialEntry.family}', serif`, fontWeight: editorialEntry.weight, fontSize: 'clamp(22px, 3.2vw, 32px)', lineHeight: 1.1, letterSpacing: editorialEntry.ls, color: 'var(--charcoal)' }}>
+      <div style={{ fontFamily: `'${editorialEntry.family}', serif`, fontWeight: editorialEntry.weight, fontSize: 'clamp(22px, 3.2vw, 32px)', lineHeight: editorialEntry.lh, letterSpacing: editorialEntry.ls, color: 'var(--charcoal)' }}>
         Unique depth and bold impact,<br/>at the intersection of data.
       </div>
     ),
@@ -53,9 +55,9 @@ const rows = [
   {
     role: 'Body copy large',
     face: bodyXLEntry.family, weight: 'Medium',
-    specs: `18 px · ${bodyXLEntry.ls} tracking · 120% leading · Sentence case`,
+    specs: `18 px · ${bodyXLEntry.ls} tracking · ${pct(bodyXLEntry.lh)} leading · Sentence case`,
     ex: (
-      <div style={{ fontFamily: `${bodyXLEntry.family}, sans-serif`, fontWeight: bodyXLEntry.weight, fontSize: 'clamp(15px,1.4vw,18px)', lineHeight: 1.4, letterSpacing: bodyXLEntry.ls, color: 'var(--charcoal)', maxWidth: 560 }}>
+      <div style={{ fontFamily: `${bodyXLEntry.family}, sans-serif`, fontWeight: bodyXLEntry.weight, fontSize: 'clamp(15px,1.4vw,18px)', lineHeight: bodyXLEntry.lh, letterSpacing: bodyXLEntry.ls, color: 'var(--charcoal)', maxWidth: 560 }}>
         {brand.specimens.body18}
       </div>
     ),
@@ -63,9 +65,9 @@ const rows = [
   {
     role: 'Body copy',
     face: bodyLEntry.family, weight: 'Medium',
-    specs: `16 px · ${bodyLEntry.ls} tracking · 140% leading · Sentence case`,
+    specs: `16 px · ${bodyLEntry.ls} tracking · ${pct(bodyLEntry.lh)} leading · Sentence case`,
     ex: (
-      <div style={{ fontFamily: `${bodyLEntry.family}, sans-serif`, fontWeight: bodyLEntry.weight, fontSize: 'clamp(14px,1.2vw,16px)', lineHeight: 1.4, letterSpacing: bodyLEntry.ls, color: 'var(--charcoal)', maxWidth: 560 }}>
+      <div style={{ fontFamily: `${bodyLEntry.family}, sans-serif`, fontWeight: bodyLEntry.weight, fontSize: 'clamp(14px,1.2vw,16px)', lineHeight: bodyLEntry.lh, letterSpacing: bodyLEntry.ls, color: 'var(--charcoal)', maxWidth: 560 }}>
         {brand.specimens.body16}
       </div>
     ),

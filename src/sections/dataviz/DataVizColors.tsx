@@ -109,7 +109,7 @@ export default function DataVizColors() {
         <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
           margin: '0 0 8px', color: '#005668' }}>Sequential palette</h3>
         <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668',
-          lineHeight: 1.6, marginBottom: 24, maxWidth: 520 }}>
+          lineHeight: 1.4, marginBottom: 24, maxWidth: 520 }}>
           When a single data series needs value differentiation (heat maps, ranked lists, or
           choropleth maps), use opacity steps of the primary color.
         </p>

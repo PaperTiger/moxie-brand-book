@@ -51,7 +51,7 @@ export default function FontOverview({
   return (
     <div className="fg-overview" style={{ background: darkestPrimary.hex, color: lightestPrimary.hex }}>
       {/* Left col — description in the body font */}
-      <div style={{ fontFamily: `${bf}, sans-serif`, fontSize: 14, lineHeight: 1.55, color: 'var(--fg-overview-text)', alignSelf: 'start' }}>
+      <div style={{ fontFamily: `${bf}, sans-serif`, fontSize: 14, lineHeight: 1.4, color: 'var(--fg-overview-text)', alignSelf: 'start' }}>
         {description}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 24 }}>
           <button onClick={handleDownload} disabled={downloading} className="dl-btn" style={{ background: 'var(--fg-overview-text)', color: 'var(--fg-overview-bg)', marginTop: 0, cursor: downloading ? 'wait' : 'pointer', opacity: downloading ? 0.7 : 1 }}>

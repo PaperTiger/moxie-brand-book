@@ -103,7 +103,7 @@ function MobileHeader({ onOpen, onHome }: { onOpen: () => void; onHome: () => vo
           <img
             src={brand.meta.sidebarLogoImage}
             alt={brand.meta.client}
-            style={{ height: 20, width: 'auto', display: 'block' }}
+            style={{ height: 24, width: 'auto', display: 'block' }}
             onError={() => setLogoError(true)}
           />
         )}

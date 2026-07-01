@@ -74,7 +74,7 @@ export default function PrintSpecs() {
         <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
           margin: '0 0 8px', color: '#005668' }}>Print safe area</h3>
         <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668',
-          lineHeight: 1.6, marginBottom: 28, maxWidth: 520 }}>
+          lineHeight: 1.4, marginBottom: 28, maxWidth: 520 }}>
           For any printed document using the brand identity, always set up bleed and safe area
           zones in your layout application before placing artwork.
         </p>
@@ -138,7 +138,7 @@ export default function PrintSpecs() {
         <h3 style={{ fontFamily: "'Gellix', sans-serif", fontWeight: 500, fontSize: 17,
           margin: '0 0 8px', color: '#005668' }}>Export this brand book as PDF</h3>
         <p style={{ fontFamily: "'Gellix', sans-serif", fontSize: 14, color: '#005668',
-          lineHeight: 1.6, marginBottom: 24, maxWidth: 560 }}>
+          lineHeight: 1.4, marginBottom: 24, maxWidth: 560 }}>
           Use the button below (or the sidebar Print button) to export the complete brand book
           as a PDF. All sections are included, each starting on a new page.
         </p>
@@ -165,7 +165,7 @@ export default function PrintSpecs() {
           <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, fontWeight: 600,
             color: t['primary-blue'], marginBottom: 6 }}>Browser tip</div>
           <div style={{ fontFamily: "'Gellix', sans-serif", fontSize: 13, color: '#005668',
-            lineHeight: 1.65 }}>
+            lineHeight: 1.4 }}>
             In the print dialog, set <strong>Destination → Save as PDF</strong>, margins to
             <strong> None</strong>, and enable <strong>Background graphics</strong> to preserve
             brand colors. Use A4 paper size for best results.

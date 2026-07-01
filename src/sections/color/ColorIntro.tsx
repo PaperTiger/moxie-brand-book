@@ -16,7 +16,7 @@ export default function ColorIntro() {
         </p>
         <div style={{ flex: 1 }} />
         <div style={{ maxWidth: 480 }}>
-          <p style={{ fontFamily: 'Gellix, sans-serif', fontSize: 16, lineHeight: 1.65,
+          <p style={{ fontFamily: 'Gellix, sans-serif', fontSize: 16, lineHeight: 1.4,
             color: 'var(--charcoal)', margin: 0 }}>
             The {brand.meta.client} color system leads with a confident primary palette,
             expressive and forward-thinking. Secondary colors provide range for accent
