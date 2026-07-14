@@ -20,11 +20,11 @@ export const ALL_LOGO_FILES = [
   'moxie-logo-mark-white.svg',
 ]
 
-async function downloadZip(files: string[], zipName: string) {
+async function downloadZip(files: string[], zipName: string, folder: string) {
   const zip = new JSZip()
   const base = import.meta.env.BASE_URL
   await Promise.all(files.map(async (file) => {
-    const resp = await fetch(`${base}images/logos/${file}`)
+    const resp = await fetch(`${base}${folder}${file}`)
     if (!resp.ok) throw new Error(`Failed to fetch ${file}`)
     zip.file(file, await resp.blob())
   }))
@@ -39,18 +39,19 @@ async function downloadZip(files: string[], zipName: string) {
 interface Props {
   style?: React.CSSProperties
   label?: string          // button text, e.g. "Download assets"
-  files?: string[]        // filenames in public/images/logos/ to include; defaults to all
+  files?: string[]        // filenames (relative to `folder`) to include; defaults to all logo files
   zipSuffix?: string       // appended to the client slug for the zip filename, e.g. "avatars"
+  folder?: string          // folder (relative to BASE_URL) the files live in; defaults to images/logos/
 }
 
-export default function DownloadLogosButton({ style, label = 'Download logos', files = ALL_LOGO_FILES, zipSuffix = 'logos' }: Props) {
+export default function DownloadLogosButton({ style, label = 'Download logos', files = ALL_LOGO_FILES, zipSuffix = 'logos', folder = 'images/logos/' }: Props) {
   const [downloading, setDownloading] = useState(false)
 
   const handleDownload = async () => {
     setDownloading(true)
     try {
       const slug = brand.meta.client.toLowerCase().replace(/\s+/g, '-')
-      await downloadZip(files, `${slug}-${zipSuffix}.zip`)
+      await downloadZip(files, `${slug}-${zipSuffix}.zip`, folder)
     } finally {
       setDownloading(false)
     }

@@ -81,6 +81,8 @@ export interface BrandConfig {
   images: {
     photography: string[]   // filenames in public/images/photography/
     applications: string[]  // filenames in public/images/applications/
+    gradients: string[]     // filenames in public/images/gradients/
+    halfMoons: string[]     // filenames in public/images/half-moons/
   }
   nav: NavGroup[]
 }
@@ -200,6 +202,16 @@ const brand: BrandConfig = {
       'application-1.webp', 'application-2.webp', 'application-3.webp',
       'application-4.webp', 'application-5.webp', 'application-6.webp',
     ],
+    gradients: [
+      'moxie-gradient-01.webp', 'moxie-gradient-02.webp', 'moxie-gradient-03.webp',
+      'moxie-gradient-04.webp', 'moxie-gradient-05.webp', 'moxie-gradient-06.webp',
+      'moxie-gradient-07.webp', 'moxie-gradient-08.webp', 'moxie-gradient-09.webp',
+      'moxie-gradient-10.webp', 'moxie-gradient-11.webp', 'moxie-gradient-12.webp',
+      'moxie-gradient-13.webp',
+    ],
+    halfMoons: [
+      'blurred-half-moon.webp', 'moxie-array.webp', 'moxie-falling-moon.webp', 'moxie-pinwheel.webp',
+    ],
   },
 
   // Approved pairings from Figma (Color Pairings page): bg / text. Some intentionally
@@ -226,6 +238,7 @@ const brand: BrandConfig = {
         { label: 'Full logo',        id: 'logo-horizontal' },
         { label: 'Stacked logo',     id: 'logo-stacked' },
         { label: 'Logo mark',        id: 'h-logo-mark' },
+        { label: 'Product logos',    id: 'logo-product' },
         { label: 'Avatar & favicon', id: 'logo-avatar' },
         { label: 'Co-branding',      id: 'logo-cobranding' },
         { label: 'Logo positioning', id: 'logo-positioning' },
@@ -284,6 +297,13 @@ const brand: BrandConfig = {
       items: [
         { label: 'Introduction', id: 'app-intro' },
         { label: 'Examples',     id: 'app-examples' },
+      ],
+    },
+    {
+      group: 'Visual assets',
+      items: [
+        { label: 'Gradients',   id: 'gradients' },
+        { label: 'Half-moons',  id: 'half-moons' },
       ],
     },
     {

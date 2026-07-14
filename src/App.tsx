@@ -9,6 +9,7 @@ const SECTIONS: Record<string, React.LazyExoticComponent<() => React.ReactElemen
   'logo-horizontal':    lazy(() => import('./sections/logo/FullLogo')),
   'logo-stacked':       lazy(() => import('./sections/logo/StackedLogo')),
   'h-logo-mark':        lazy(() => import('./sections/logo/LogoMark')),
+  'logo-product':       lazy(() => import('./sections/logo/ProductLogos')),
   'logo-avatar':        lazy(() => import('./sections/logo/LogoAvatar')),
   'logo-positioning':   lazy(() => import('./sections/logo/LogoPositioning')),
   'logo-avoid':         lazy(() => import('./sections/logo/LogoAvoid')),
@@ -36,6 +37,8 @@ const SECTIONS: Record<string, React.LazyExoticComponent<() => React.ReactElemen
   'dataviz-charts':     lazy(() => import('./sections/dataviz/DataVizCharts')),
   'app-intro':          lazy(() => import('./sections/applications/AppIntro')),
   'app-examples':       lazy(() => import('./sections/applications/AppExamples')),
+  'gradients':          lazy(() => import('./sections/visual-assets/Gradients')),
+  'half-moons':         lazy(() => import('./sections/visual-assets/HalfMoons')),
   'icon-intro':         lazy(() => import('./sections/iconography/IconIntro')),
   'print-specs':        lazy(() => import('./sections/print/PrintSpecs')),
 }

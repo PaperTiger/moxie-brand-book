@@ -1,6 +1,9 @@
 #!/usr/bin/env node
-// Converts PNG/JPG images in public/images/photography/ and public/images/applications/
-// to WebP at max 1600px wide. Deletes the originals after conversion.
+// Converts PNG/JPG images in public/images/photography/, public/images/applications/,
+// public/images/gradients/, and public/images/half-moons/ to WebP at max 1600px wide.
+// Deletes the originals after conversion — full-resolution sources for any of these
+// should live in a sibling "-full" folder (e.g. gradients-full/) that is never listed
+// here, so they survive this step untouched.
 // Usage: node scripts/convert-images.js
 
 import sharp from 'sharp'
@@ -13,7 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = join(__dirname, '..', 'public', 'images')
 
 const SOURCE_EXTS = new Set(['.jpg', '.jpeg', '.png'])
-const DIRS = ['photography', 'applications']
+const DIRS = ['photography', 'applications', 'gradients', 'half-moons']
 const MAX_WIDTH = 1600
 
 async function convertDir(dir) {
