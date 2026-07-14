@@ -26,6 +26,14 @@ const avatarBgs: { bg: string; label: string; mark?: string; gradient?: boolean;
 
 const faviconSizes = [64, 48, 32, 16]
 
+// Mirrors the two favicon previews below. Exported as square PNGs (plus a scalable
+// SVG for the solid variant) rather than the raw 259x123 mark, which a browser
+// would otherwise squash or crop into the square favicon slot.
+const faviconVariants = [
+  { name: 'light', bg: '#FFFFFF', mark: t['dark-blue'] },
+  { name: 'dark',  bg: '#000000', gradient: true },
+]
+
 export default function LogoAvatar() {
   return (
     <div className="page">
@@ -37,7 +45,12 @@ export default function LogoAvatar() {
         where space is too small for any wordmark.
       </p>
 
-      <DownloadAvatarAssetsButton avatars={avatarBgs} gradientSrc={GRADIENT_FULL} />
+      <DownloadAvatarAssetsButton
+        avatars={avatarBgs}
+        favicons={faviconVariants}
+        gradientSrc={GRADIENT_FULL}
+        markGradientSrc={GRADIENT_MARK}
+      />
 
       <div style={{ borderTop: "1px solid #E5E5E5", paddingTop: 48, marginBottom: 56 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, marginBottom: 24 }}>

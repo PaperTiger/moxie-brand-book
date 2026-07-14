@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import JSZip from 'jszip'
 import brand from '../../brand.config'
-import { FULL_LOGO_PATHS, FULL_LOGO_VIEWBOX } from './LogoSvg'
+import { FULL_LOGO_PATHS, FULL_LOGO_VIEWBOX, MARK_PATH, MARK_VIEWBOX } from './LogoSvg'
 
 const SIZE = 1000
 const LOGO_WIDTH_RATIO = 0.7 // matches the proportion used in the live circular avatar swatches
+
+// Favicon/app-icon sizes browsers and platforms actually ask for.
+const FAVICON_SIZES = [16, 32, 48, 64, 180, 192, 512]
+const MARK_WIDTH_RATIO = 0.8 // matches the 80% inset used in the live favicon previews
 
 function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
@@ -55,6 +59,57 @@ export async function renderAvatarPng(bgHex: string, opts: { gradientSrc?: strin
   return canvasToPngBlob(canvas)
 }
 
+// Composites a SQUARE favicon: the mark letterboxed inside the square at its true
+// ~2:1 aspect, centered, with an even margin. The raw mark SVG is 259x123, so
+// shipping it directly as a favicon leaves the browser to squash or crop it into
+// the square slot — hence compositing here instead.
+export async function renderFaviconPng(size: number, opts: { bg: string; gradientSrc?: string; markFill?: string }): Promise<Blob> {
+  const canvas = document.createElement('canvas')
+  canvas.width = size
+  canvas.height = size
+  const ctx = canvas.getContext('2d')!
+  ctx.fillStyle = opts.bg
+  ctx.fillRect(0, 0, size, size)
+
+  const targetW = size * MARK_WIDTH_RATIO
+  const targetH = targetW * (MARK_VIEWBOX.height / MARK_VIEWBOX.width)
+  const x = (size - targetW) / 2
+  const y = (size - targetH) / 2
+
+  if (opts.gradientSrc) {
+    const img = await loadImage(opts.gradientSrc)
+    ctx.drawImage(img, x, y, targetW, targetH)
+  } else {
+    const scale = targetW / MARK_VIEWBOX.width
+    ctx.save()
+    ctx.translate(x, y)
+    ctx.scale(scale, scale)
+    ctx.fillStyle = opts.markFill ?? '#000000'
+    ctx.fill(new Path2D(MARK_PATH))
+    ctx.restore()
+  }
+
+  return canvasToPngBlob(canvas)
+}
+
+// Square, scalable favicon. Same letterboxing as the PNGs, expressed as a
+// 512x512 viewBox so it stays crisp at any size.
+function faviconSvg(markFill: string, bg: string): string {
+  const S = 512
+  const w = S * MARK_WIDTH_RATIO
+  const h = w * (MARK_VIEWBOX.height / MARK_VIEWBOX.width)
+  const x = (S - w) / 2
+  const y = (S - h) / 2
+  const scale = w / MARK_VIEWBOX.width
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${S} ${S}" width="${S}" height="${S}">
+  <rect width="${S}" height="${S}" fill="${bg}"/>
+  <g transform="translate(${x} ${y}) scale(${scale})">
+    <path d="${MARK_PATH}" fill="${markFill}"/>
+  </g>
+</svg>
+`
+}
+
 export interface AvatarSpec {
   label: string
   bg: string
@@ -62,39 +117,56 @@ export interface AvatarSpec {
   gradient?: boolean
 }
 
-// Favicon-ready mark files bundled alongside the composited avatars.
-const MARK_FILES = ['moxie-logo-mark-dark.svg', 'moxie-logo-mark-light.svg', 'moxie-logo-mark-gradient.svg']
+export interface FaviconSpec {
+  name: string
+  bg: string
+  mark?: string
+  gradient?: boolean
+}
 
-async function downloadAvatarAssetsZip(avatars: AvatarSpec[], gradientSrc: string) {
+async function downloadAvatarAssetsZip(
+  avatars: AvatarSpec[],
+  favicons: FaviconSpec[],
+  gradientSrc: string,
+  markGradientSrc: string,
+) {
   const zip = new JSZip()
-  const base = import.meta.env.BASE_URL
+  const slug = brand.meta.client.toLowerCase().replace(/\s+/g, '-')
 
   await Promise.all(avatars.map(async (a) => {
     const blob = await renderAvatarPng(a.bg, { gradientSrc: a.gradient ? gradientSrc : undefined, markFill: a.mark })
-    const slug = a.label.toLowerCase().replace(/\s+/g, '-')
-    zip.file(`moxie-avatar-${slug}.png`, blob)
+    zip.file(`avatars/${slug}-avatar-${a.label.toLowerCase().replace(/\s+/g, '-')}.png`, blob)
   }))
 
-  await Promise.all(MARK_FILES.map(async (file) => {
-    const resp = await fetch(`${base}images/logos/${file}`)
-    if (resp.ok) zip.file(file, await resp.blob())
+  await Promise.all(favicons.flatMap((f) => {
+    const src = f.gradient ? markGradientSrc : undefined
+    const pngs = FAVICON_SIZES.map(async (size) => {
+      const blob = await renderFaviconPng(size, { bg: f.bg, gradientSrc: src, markFill: f.mark })
+      zip.file(`favicons/${f.name}/${slug}-favicon-${f.name}-${size}x${size}.png`, blob)
+    })
+    // Gradient fills can't be expressed from the shared path data, so the scalable
+    // SVG is only emitted for the solid-fill variants.
+    if (!f.gradient) {
+      zip.file(`favicons/${f.name}/${slug}-favicon-${f.name}.svg`, faviconSvg(f.mark ?? '#000000', f.bg))
+    }
+    return pngs
   }))
 
   const zipBlob = await zip.generateAsync({ type: 'blob' })
   const a = document.createElement('a')
   a.href = URL.createObjectURL(zipBlob)
-  a.download = `${brand.meta.client.toLowerCase().replace(/\s+/g, '-')}-avatar-assets.zip`
+  a.download = `${slug}-avatar-assets.zip`
   a.click()
   URL.revokeObjectURL(a.href)
 }
 
-export default function DownloadAvatarAssetsButton({ avatars, gradientSrc, style }: { avatars: AvatarSpec[]; gradientSrc: string; style?: React.CSSProperties }) {
+export default function DownloadAvatarAssetsButton({ avatars, favicons, gradientSrc, markGradientSrc, style }: { avatars: AvatarSpec[]; favicons: FaviconSpec[]; gradientSrc: string; markGradientSrc: string; style?: React.CSSProperties }) {
   const [downloading, setDownloading] = useState(false)
 
   const handleDownload = async () => {
     setDownloading(true)
     try {
-      await downloadAvatarAssetsZip(avatars, gradientSrc)
+      await downloadAvatarAssetsZip(avatars, favicons, gradientSrc, markGradientSrc)
     } finally {
       setDownloading(false)
     }

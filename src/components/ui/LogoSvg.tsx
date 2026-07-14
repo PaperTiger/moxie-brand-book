@@ -61,11 +61,17 @@ export function StackedLogoSvg({ markFill, wordmarkFill, style, className }: Log
   )
 }
 
+// The mark on its own. Its natural aspect is ~2:1 (a half-moon), NOT square — any
+// square export (favicon, app icon) must letterbox it inside the square rather than
+// ship this viewBox directly, or the shape gets squashed/cropped to fit.
+export const MARK_VIEWBOX = { width: 259, height: 123 }
+export const MARK_PATH = "M258.766 0.187136V0H0V0.187136C0.000144381 33.8957 11.8982 62.6479 35.6925 86.4423C60.4784 110.236 91.7086 122.132 129.383 122.132C167.057 122.132 197.791 110.236 221.586 86.4423C246.371 62.6479 258.765 33.8957 258.766 0.187136Z"
+
 export function LogoMarkSvg({ markFill, style, className }: Omit<LogoProps, 'wordmarkFill'>) {
   const fill = markFill ?? DEFAULT
   return (
-    <svg viewBox="0 0 259 123" fill="none" xmlns="http://www.w3.org/2000/svg" style={style} className={className}>
-      <path d="M258.766 0.187136V0H0V0.187136C0.000144381 33.8957 11.8982 62.6479 35.6925 86.4423C60.4784 110.236 91.7086 122.132 129.383 122.132C167.057 122.132 197.791 110.236 221.586 86.4423C246.371 62.6479 258.765 33.8957 258.766 0.187136Z" fill={fill}/>
+    <svg viewBox={`0 0 ${MARK_VIEWBOX.width} ${MARK_VIEWBOX.height}`} fill="none" xmlns="http://www.w3.org/2000/svg" style={style} className={className}>
+      <path d={MARK_PATH} fill={fill}/>
     </svg>
   )
 }
