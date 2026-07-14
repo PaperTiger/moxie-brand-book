@@ -26,12 +26,16 @@ const avatarBgs: { bg: string; label: string; mark?: string; gradient?: boolean;
 
 const faviconSizes = [64, 48, 32, 16]
 
-// Mirrors the two favicon previews below. Exported as square PNGs (plus a scalable
-// SVG for the solid variant) rather than the raw 259x123 mark, which a browser
-// would otherwise squash or crop into the square favicon slot.
+// Exported as square PNGs (plus a scalable SVG for the solid variants) rather than
+// the raw 259x123 mark, which a browser would otherwise squash or crop into the
+// square favicon slot. The first two mirror the previews below; the transparent
+// set omits the background plate so the mark can sit on any surface.
 const faviconVariants = [
-  { name: 'light', bg: '#FFFFFF', mark: t['dark-blue'] },
-  { name: 'dark',  bg: '#000000', gradient: true },
+  { name: 'light',                 bg: '#FFFFFF', mark: t['dark-blue'] },
+  { name: 'dark',                  bg: '#000000', gradient: true },
+  { name: 'transparent-dark',                     mark: t['dark-blue'] },
+  { name: 'transparent-light',                    mark: VEIL },
+  { name: 'transparent-gradient',                 gradient: true },
 ]
 
 export default function LogoAvatar() {

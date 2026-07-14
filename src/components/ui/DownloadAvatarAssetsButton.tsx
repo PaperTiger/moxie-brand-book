@@ -63,13 +63,17 @@ export async function renderAvatarPng(bgHex: string, opts: { gradientSrc?: strin
 // ~2:1 aspect, centered, with an even margin. The raw mark SVG is 259x123, so
 // shipping it directly as a favicon leaves the browser to squash or crop it into
 // the square slot — hence compositing here instead.
-export async function renderFaviconPng(size: number, opts: { bg: string; gradientSrc?: string; markFill?: string }): Promise<Blob> {
+// Omit `bg` to leave the square transparent — the canvas starts transparent, so
+// skipping the fill is all it takes.
+export async function renderFaviconPng(size: number, opts: { bg?: string; gradientSrc?: string; markFill?: string }): Promise<Blob> {
   const canvas = document.createElement('canvas')
   canvas.width = size
   canvas.height = size
   const ctx = canvas.getContext('2d')!
-  ctx.fillStyle = opts.bg
-  ctx.fillRect(0, 0, size, size)
+  if (opts.bg) {
+    ctx.fillStyle = opts.bg
+    ctx.fillRect(0, 0, size, size)
+  }
 
   const targetW = size * MARK_WIDTH_RATIO
   const targetH = targetW * (MARK_VIEWBOX.height / MARK_VIEWBOX.width)
@@ -94,15 +98,15 @@ export async function renderFaviconPng(size: number, opts: { bg: string; gradien
 
 // Square, scalable favicon. Same letterboxing as the PNGs, expressed as a
 // 512x512 viewBox so it stays crisp at any size.
-function faviconSvg(markFill: string, bg: string): string {
+function faviconSvg(markFill: string, bg?: string): string {
   const S = 512
   const w = S * MARK_WIDTH_RATIO
   const h = w * (MARK_VIEWBOX.height / MARK_VIEWBOX.width)
   const x = (S - w) / 2
   const y = (S - h) / 2
   const scale = w / MARK_VIEWBOX.width
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${S} ${S}" width="${S}" height="${S}">
-  <rect width="${S}" height="${S}" fill="${bg}"/>
+  const rect = bg ? `\n  <rect width="${S}" height="${S}" fill="${bg}"/>` : ''
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${S} ${S}" width="${S}" height="${S}">${rect}
   <g transform="translate(${x} ${y}) scale(${scale})">
     <path d="${MARK_PATH}" fill="${markFill}"/>
   </g>
@@ -119,7 +123,7 @@ export interface AvatarSpec {
 
 export interface FaviconSpec {
   name: string
-  bg: string
+  bg?: string          // omit for a transparent background
   mark?: string
   gradient?: boolean
 }
