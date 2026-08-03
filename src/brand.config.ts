@@ -307,7 +307,7 @@ const brand: BrandConfig = {
       ],
     },
     {
-      group: 'Print & export',
+      group: 'Print specs',
       items: [{ label: 'Specifications', id: 'print-specs' }],
     },
   ],
