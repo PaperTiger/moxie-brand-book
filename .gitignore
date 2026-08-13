@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vite cache — the real one lives in node_modules/.vite; this root copy is an orphan
+.vite
