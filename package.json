@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "convert-images": "node scripts/convert-images.js",
     "predeploy": "node scripts/predeploy.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "postdeploy": "rm -rf dist"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.2.8",
