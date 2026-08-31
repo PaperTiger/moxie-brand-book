@@ -5,10 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predev": "node scripts/convert-cmyk.js --if-available",
     "build": "tsc -b && vite build",
+    "prebuild": "node scripts/convert-cmyk.js --if-available",
     "lint": "eslint .",
     "preview": "vite preview",
     "convert-images": "node scripts/convert-images.js",
+    "convert-cmyk": "node scripts/convert-cmyk.js",
     "predeploy": "node scripts/predeploy.js",
     "deploy": "gh-pages -d dist",
     "postdeploy": "rm -rf dist"

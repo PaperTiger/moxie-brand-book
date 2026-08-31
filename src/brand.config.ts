@@ -3,6 +3,16 @@ export interface ColorToken {
   hex: string
   textColor: string
   outline?: string
+  /**
+   * Press build as [C, M, Y, K] percentages, written by `npm run convert-cmyk`.
+   *
+   * Do not hand-edit and do not compute it. CMYK cannot be derived from RGB by
+   * arithmetic: the old formula treated ink as inverted light, which no press
+   * does, and produced C54 M0 Y14 K2 for a colour whose real build is
+   * C43 M0 Y29 K0. The script converts through littleCMS against a real ICC
+   * printer profile instead.
+   */
+  cmyk?: [number, number, number, number]
 }
 
 export interface FontFace {
@@ -172,22 +182,22 @@ const brand: BrandConfig = {
 
   colors: {
     primary: [
-      { name: 'Dark Teal',  hex: '#005668', textColor: '#C6E5DD' },
-      { name: 'Light Teal', hex: '#0090A4', textColor: '#C6E5DD' },
-      { name: 'Mist',       hex: '#C6E5DD', textColor: '#005668' },
-      { name: 'Veil',       hex: '#E2FEF7', textColor: '#0090A4', outline: '1px solid #C7C7C7' },
+      { name: 'Dark Teal',  hex: '#005668', textColor: '#C6E5DD', cmyk: [93, 56, 45, 24] },
+      { name: 'Light Teal', hex: '#0090A4', textColor: '#C6E5DD', cmyk: [82, 27, 31, 1] },
+      { name: 'Mist',       hex: '#C6E5DD', textColor: '#005668', cmyk: [21, 1, 15, 0] },
+      { name: 'Veil',       hex: '#E2FEF7', textColor: '#0090A4', outline: '1px solid #C7C7C7', cmyk: [9, 0, 5, 0] },
     ],
     secondary: [
-      { name: 'Flare',     hex: '#F65F28', textColor: '#E2FEF7' },
-      { name: 'Lime',      hex: '#BAEB65', textColor: '#005668' },
-      { name: 'Aurora',    hex: '#55EFC7', textColor: '#005668' },
-      { name: 'Azure',     hex: '#48A1FD', textColor: '#E2FEF7' },
+      { name: 'Flare',     hex: '#F65F28', textColor: '#E2FEF7', cmyk: [0, 78, 95, 0] },
+      { name: 'Lime',      hex: '#BAEB65', textColor: '#005668', cmyk: [30, 0, 77, 0] },
+      { name: 'Aurora',    hex: '#55EFC7', textColor: '#005668', cmyk: [51, 0, 36, 0] },
+      { name: 'Azure',     hex: '#48A1FD', textColor: '#E2FEF7', cmyk: [61, 30, 0, 0] },
     ],
     tertiary: [
-      { name: 'Shadow',    hex: '#7E7E7E', textColor: '#E2FEF7' },
-      { name: 'Dusk',      hex: '#36363B', textColor: '#E2FEF7' },
-      { name: 'Haze',      hex: '#F0F7E8', textColor: '#005668', outline: '1px solid #DDE7D6' },
-      { name: 'Logo dark', hex: '#004553', textColor: '#E2FEF7' },
+      { name: 'Shadow',    hex: '#7E7E7E', textColor: '#E2FEF7', cmyk: [51, 44, 44, 9] },
+      { name: 'Dusk',      hex: '#36363B', textColor: '#E2FEF7', cmyk: [70, 65, 58, 53] },
+      { name: 'Haze',      hex: '#F0F7E8', textColor: '#005668', outline: '1px solid #DDE7D6', cmyk: [4, 0, 10, 0] },
+      { name: 'Logo dark', hex: '#004553', textColor: '#E2FEF7', cmyk: [94, 61, 51, 37] },
     ],
   },
 
